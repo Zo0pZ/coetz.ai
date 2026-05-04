@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hub — AI Guides & Resources | Coetz.uk</title>
+<meta name="description" content="In-depth AI guides, tool comparisons, prompt frameworks, and workflow templates for UK professionals. Save-worthy content, no fluff.">
+<link rel="canonical" href="https://coetz.uk/blog/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://coetz.uk/blog/">
+<meta property="og:title" content="The Hub — AI Guides & Resources | Coetz.uk">
+<meta property="og:description" content="In-depth AI guides, tool comparisons and workflow templates for UK professionals. From @coetz.ai — 71K followers.">
+<meta property="og:image" content="https://coetz.uk/media/og-card.png">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Hub — AI Guides & Resources | Coetz.uk">
+<meta name="twitter:description" content="In-depth AI guides for UK professionals. Prompts, stacks, tool comparisons from @coetz.ai.">
+<meta name="twitter:image" content="https://coetz.uk/media/og-card.png">
+
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="AI guides UK, AI productivity UK, AI tools 2025, prompt engineering, ChatGPT tips UK, AI workflow automation, digital transformation UK">
+
+<!-- JSON-LD: Blog -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "The Hub by Coetz.uk",
+  "url": "https://coetz.uk/blog/",
+  "description": "In-depth AI guides, tool comparisons and workflow frameworks for UK professionals.",
+  "publisher": {
+    "@type": "Person",
+    "name": "Coetz",
+    "url": "https://coetz.uk",
+    "sameAs": ["https://instagram.com/coetz.ai"]
+  },
+  "inLanguage": "en-GB"
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size: 1em; scroll-behavior: smooth; }
+
+:root {
+  --ink:    #07080a;
+  --deep:   #0b0d11;
+  --surf:   #111418;
+  --panel:  #161b22;
+  --lift:   #1d232e;
+  --rim:    #262f3c;
+  --rimhi:  #30404f;
+  --sig:    #4fffb0;
+  --volt:   #d4ff00;
+  --ice:    #a0c4ff;
+  --coral:  #ff7eb3;
+  --t1:     #f4f7fb;
+  --t2:     #b8c5d0;
+  --t3:     #8796a5;
+  --t4:     #617181;
+}
+
+body {
+  font-family: 'Epilogue', sans-serif;
+  font-size: 1em;
+  background: var(--ink);
+  color: var(--t1);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 40px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(7,8,10,.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--lift);
+}
+
+.nav-brand {
+  font-family: 'Anybody', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  color: var(--t1);
+}
+.nav-brand .tld { color: var(--sig); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--t2);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--t1); }
+
+.nav-cta {
+  font-family: 'Anybody', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  font-style: italic;
+  background: var(--sig);
+  color: var(--ink);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.nav-cta:hover { opacity: .85; }
+
+@media (max-width:700px) {
+  .nav-links { display:none; }
+  nav { padding: 0 20px; }
+}
+
+/* ── HERO ── */
+.blog-hero {
+  padding: 120px 40px 72px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.breadcrumb {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.breadcrumb a { color: var(--t3); text-decoration: none; }
+.breadcrumb a:hover { color: var(--sig); }
+.breadcrumb-sep { color: var(--t4); }
+
+.section-eye {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sig);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.section-eye::before { content: '//'; opacity:.5; }
+
+.blog-hero-h {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: .95;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+.blog-hero-h em { font-style: normal; color: var(--sig); }
+
+.blog-hero-sub {
+  font-size: 16px;
+  color: var(--t2);
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+/* ── FILTER TABS ── */
+.filter-bar {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 40px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--lift);
+  background: transparent;
+  color: var(--t3);
+  cursor: pointer;
+  transition: all .2s;
+  text-decoration: none;
+}
+.filter-btn:hover, .filter-btn.active {
+  border-color: var(--sig);
+  color: var(--sig);
+  background: rgba(79,255,176,.06);
+}
+
+/* ── FEATURED POST ── */
+.featured-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 24px;
+}
+
+.featured-card {
+  background: var(--panel);
+  border: 1px solid rgba(79,255,176,.25);
+  border-radius: 20px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .25s, transform .25s;
+  position: relative;
+  overflow: hidden;
+}
+.featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sig), var(--volt));
+}
+.featured-card:hover { border-color: rgba(79,255,176,.5); transform: translateY(-2px); }
+
+@media (max-width:700px) {
+  .featured-card { grid-template-columns: 1fr; padding: 32px 24px; }
+}
+
+.featured-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--sig);
+  background: rgba(79,255,176,.1);
+  padding: 4px 12px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.featured-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.05;
+  letter-spacing: -0.8px;
+  margin-bottom: 16px;
+}
+
+.featured-body {
+  font-size: 14px;
+  color: var(--t2);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+.featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.featured-meta-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.featured-meta-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--sig);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; }
+  50%      { opacity:.3; }
+}
+
+.featured-visual {
+  background: var(--lift);
+  border-radius: 12px;
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  border: 1px solid var(--rim);
+}
+
+.featured-cta {
+  font-family: 'Anybody', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--sig);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap .2s;
+}
+.featured-card:hover .featured-cta { gap: 12px; }
+
+/* ── ARTICLE GRID ── */
+.articles-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+.articles-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.articles-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--lift);
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.article-card {
+  background: var(--panel);
+  border: 1px solid var(--lift);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .25s, transform .25s;
+}
+.article-card:hover { transform: translateY(-3px); }
+.article-card:nth-child(3n+1):hover { border-color: rgba(79,255,176,.35); }
+.article-card:nth-child(3n+2):hover { border-color: rgba(212,255,0,.35); }
+.article-card:nth-child(3n):hover   { border-color: rgba(160,196,255,.35); }
+
+.article-thumb {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  border-bottom: 1px solid var(--lift);
+  flex-shrink: 0;
+}
+.article-card:nth-child(3n+1) .article-thumb { background: rgba(79,255,176,.04); }
+.article-card:nth-child(3n+2) .article-thumb { background: rgba(212,255,0,.04); }
+.article-card:nth-child(3n)   .article-thumb { background: rgba(160,196,255,.04); }
+
+.article-body {
+  padding: 22px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.article-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  display: inline-block;
+  align-self: flex-start;
+}
+.article-card:nth-child(3n+1) .article-tag { background: rgba(79,255,176,.1); color: var(--sig); }
+.article-card:nth-child(3n+2) .article-tag { background: rgba(212,255,0,.1); color: var(--volt); }
+.article-card:nth-child(3n)   .article-tag { background: rgba(160,196,255,.1); color: var(--ice); }
+
+.article-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: 17px;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+}
+
+.article-excerpt {
+  font-size: 13px;
+  color: var(--t2);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.article-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--lift);
+  margin-top: 4px;
+}
+
+.article-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  letter-spacing: 0.3px;
+}
+
+.article-arrow {
+  font-size: 14px;
+  color: var(--t4);
+  transition: color .2s, transform .2s;
+}
+.article-card:hover .article-arrow { color: var(--sig); transform: translateX(3px); }
+
+/* ── INSTAGRAM CTA ── */
+.instagram-cta {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px 100px;
+}
+
+.ig-block {
+  background: var(--panel);
+  border: 1px solid var(--lift);
+  border-radius: 20px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (max-width:600px) {
+  .ig-block { grid-template-columns: 1fr; padding: 32px 24px; }
+}
+
+.ig-block-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 12px;
+}
+
+.ig-block-h {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(22px, 3vw, 36px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.ig-block-h em { font-style: normal; color: var(--coral); }
+
+.ig-block-sub {
+  font-size: 13px;
+  color: var(--t2);
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.ig-block-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-primary {
+  font-family: 'Anybody', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  font-style: italic;
+  background: var(--sig);
+  color: var(--ink);
+  border: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity .2s;
+  white-space: nowrap;
+}
+.btn-primary:hover { opacity:.87; }
+
+.btn-ghost {
+  font-family: 'Anybody', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  font-style: italic;
+  background: transparent;
+  color: var(--t1);
+  border: 1px solid var(--rim);
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color .2s;
+  white-space: nowrap;
+}
+.btn-ghost:hover { border-color: var(--rimhi); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--deep);
+  border-top: 1px solid var(--lift);
+  padding: 48px 40px 36px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+@media (max-width:700px) {
+  .footer-inner { grid-template-columns: 1fr; }
+}
+
+.footer-brand .name {
+  font-family: 'Anybody', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.footer-brand .name span { color: var(--sig); }
+
+.footer-brand p {
+  font-size: 13px;
+  color: var(--t2);
+  line-height: 1.65;
+  max-width: 240px;
+}
+
+.footer-col h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 14px;
+}
+
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+
+.footer-col ul a {
+  font-size: 13px;
+  color: var(--t2);
+  text-decoration: none;
+  transition: color .2s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.footer-col ul a:hover { color: var(--t1); }
+.footer-col ul a::before {
+  content: '›';
+  color: var(--t3);
+  font-size: 13px;
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--lift);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-bottom p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  letter-spacing: 0.5px;
+}
+
+.footer-bottom a { color: var(--sig); text-decoration: none; }
+
+@media (max-width:600px) {
+  .blog-hero, .featured-wrap, .articles-wrap, .instagram-cta { padding-left: 20px; padding-right: 20px; }
+  .filter-bar { padding-left: 20px; padding-right: 20px; }
+  footer { padding: 40px 20px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a href="../" class="nav-brand">Coetz<span class="tld">.uk</span></a>
+  <ul class="nav-links">
+    <li><a href="../#about">About</a></li>
+    <li><a href="../blog/" class="active">Blog</a></li>
+    <li><a href="../#products">Products</a></li>
+    <li><a href="../#newsletter">Newsletter</a></li>
+    <li><a href="../links/">Links</a></li>
+  </ul>
+  <a href="../#newsletter" class="nav-cta">Get the Free Kit →</a>
+</nav>
+
+<!-- Hero -->
+<div class="blog-hero">
+  <div class="breadcrumb">
+    <a href="../">Coetz.uk</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>The Hub</span>
+  </div>
+  <div class="section-eye">Resources & Guides</div>
+  <h1 class="blog-hero-h">AI for the<br><em>Modern Professional.</em></h1>
+  <p class="blog-hero-sub">In-depth guides, honest tool comparisons, and copy-paste frameworks. Designed to be saved, shared, and actually used — not skimmed and forgotten.</p>
+</div>
+
+<!-- Filter bar -->
+<div class="filter-bar">
+  <a href="#" class="filter-btn active">All</a>
+  <a href="#productivity" class="filter-btn">Productivity</a>
+  <a href="#tools" class="filter-btn">Tool Reviews</a>
+  <a href="#prompts" class="filter-btn">Prompts</a>
+  <a href="#ai-battles" class="filter-btn">AI Battles</a>
+  <a href="#stacks" class="filter-btn">Stacks</a>
+</div>
+
+<!-- Featured post -->
+<div class="featured-wrap">
+  <a href="ai-tools-reclaim-5-hours/" class="featured-card">
+    <div class="featured-left">
+      <div class="featured-label">Featured Guide</div>
+      <h2 class="featured-title">3 AI Tools to Reclaim 5 Hours of Your Week</h2>
+      <p class="featured-body">Most people use AI wrong — they open ChatGPT, type a question, and get a mediocre answer. This guide covers the three tools I use daily to automate the parts of my work that used to eat half my day: inbox management, first-draft content, and research summaries.</p>
+      <div class="featured-meta">
+        <div class="featured-meta-item"><div class="featured-meta-dot"></div>AI Productivity UK</div>
+        <div class="featured-meta-item">5 min read</div>
+        <div class="featured-meta-item">May 2025</div>
+      </div>
+      <br>
+      <div class="featured-cta">Read the guide →</div>
+    </div>
+    <div class="featured-visual">⏱️</div>
+  </a>
+</div>
+
+<!-- Article grid -->
+<div class="articles-wrap">
+  <div class="articles-label" id="tools">All guides</div>
+
+  <div class="articles-grid">
+
+    <a href="chatgpt-vs-claude/" class="article-card">
+      <div class="article-thumb">⚔️</div>
+      <div class="article-body">
+        <div class="article-tag">AI Battle</div>
+        <div class="article-title">ChatGPT vs Claude in 2025: Which Should You Actually Use?</div>
+        <div class="article-excerpt">Same brief. Two models. Tested across writing, research, coding, and reasoning. One honest verdict — no paid placement, no affiliate bias.</div>
+        <div class="article-foot">
+          <span class="article-meta">7 min · Tool Comparison</span>
+          <span class="article-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="rcf-prompt-framework/" class="article-card">
+      <div class="article-thumb">⌬</div>
+      <div class="article-body">
+        <div class="article-tag">Prompts</div>
+        <div class="article-title">The R-C-F Framework: Write AI Prompts That Actually Work</div>
+        <div class="article-excerpt">Role, Context, Format — the three-part structure behind every prompt in the 200 Prompt Pack. Learn it once and your AI outputs improve immediately.</div>
+        <div class="article-foot">
+          <span class="article-meta">4 min · Prompt Engineering</span>
+          <span class="article-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="founders-ai-stack/" class="article-card">
+      <div class="article-thumb">🛠️</div>
+      <div class="article-body">
+        <div class="article-tag">Stacks</div>
+        <div class="article-title">The Founder's AI Stack: 10 Tools Running My Lean UK Business</div>
+        <div class="article-excerpt">From content creation to client management — the exact AI tool stack I use to run a solo operation without burning out. UK pricing and alternatives included.</div>
+        <div class="article-foot">
+          <span class="article-meta">6 min · Tool Stack</span>
+          <span class="article-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="ai-notion-second-brain/" class="article-card">
+      <div class="article-thumb">🧠</div>
+      <div class="article-body">
+        <div class="article-tag">Productivity</div>
+        <div class="article-title">How to Build an AI Second Brain in Notion (Free Plan)</div>
+        <div class="article-excerpt">A step-by-step walkthrough of the exact Notion setup behind the AI Second Brain template — eight databases, 50 pre-loaded prompts, and zero faff.</div>
+        <div class="article-foot">
+          <span class="article-meta">8 min · Workflow Setup</span>
+          <span class="article-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="ai-productivity-uk/" class="article-card">
+      <div class="article-thumb">🇬🇧</div>
+      <div class="article-body">
+        <div class="article-tag">Productivity</div>
+        <div class="article-title">AI Productivity for UK Professionals: The Complete 2025 Guide</div>
+        <div class="article-excerpt">A UK-specific roundup: GDPR-safe tools, sterling pricing, and the workflows that actually work for British business hours and communication styles.</div>
+        <div class="article-foot">
+          <span class="article-meta">10 min · UK Guide</span>
+          <span class="article-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="make-vs-zapier/" class="article-card">
+      <div class="article-thumb">⚙️</div>
+      <div class="article-body">
+        <div class="article-tag">AI Battle</div>
+        <div class="article-title">Make.com vs Zapier: Which Automation Tool Is Worth Paying For?</div>
+        <div class="article-excerpt">Both promise to automate everything. One delivers. A practical test using real workflows — email parsing, social scheduling, and CRM updates.</div>
+        <div class="article-foot">
+          <span class="article-meta">6 min · Automation</span>
+          <span class="article-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="perplexity-ai-review/" class="article-card">
+      <div class="article-thumb">🔍</div>
+      <div class="article-body">
+        <div class="article-tag">Tool Review</div>
+        <div class="article-title">Perplexity AI Review 2025: Is It Worth It Over Google?</div>
+        <div class="article-excerpt">I used Perplexity as my primary search tool for 30 days. Here's what it's genuinely better at, what it still can't do, and whether the Pro plan is worth £17/month.</div>
+        <div class="article-foot">
+          <span class="article-meta">5 min · Tool Review</span>
+          <span class="article-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="freelancer-ai-stack/" class="article-card">
+      <div class="article-thumb">💼</div>
+      <div class="article-body">
+        <div class="article-tag">Stacks</div>
+        <div class="article-title">The UK Freelancer's AI Toolkit: 8 Tools Under £30/Month</div>
+        <div class="article-excerpt">A curated stack for UK freelancers keeping costs tight — writing, invoicing, client comms, and research all covered for less than a gym membership.</div>
+        <div class="article-foot">
+          <span class="article-meta">5 min · Freelance Stack</span>
+          <span class="article-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="../#products" class="article-card">
+      <div class="article-thumb">📦</div>
+      <div class="article-body">
+        <div class="article-tag">Products</div>
+        <div class="article-title">200 AI Prompts, Second Brain & More — Paid Resources</div>
+        <div class="article-excerpt">Three digital products built to pay for themselves on day one. From the 200 Prompt Pack to the Founder's AI Toolkit PDF — see everything available.</div>
+        <div class="article-foot">
+          <span class="article-meta">Products · From £9</span>
+          <span class="article-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- Instagram CTA -->
+<div class="instagram-cta">
+  <div class="ig-block">
+    <div>
+      <div class="ig-block-label">Daily on Instagram</div>
+      <h2 class="ig-block-h">Shorter. Faster.<br><em>Daily on @coetz.ai.</em></h2>
+      <p class="ig-block-sub">These guides go deep, but the daily content on Instagram keeps you current. Tool drops, prompt hacks, and AI news — distilled into 60 seconds or a swipeable carousel. 71K followers can't be wrong.</p>
+    </div>
+    <div class="ig-block-actions">
+      <a href="https://instagram.com/coetz.ai" class="btn-primary">📸 Follow @coetz.ai</a>
+      <a href="../#newsletter" class="btn-ghost">Get the free kit →</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="name">Coetz<span>.uk</span></div>
+      <p>AI tools tested so you don't have to. Daily prompts, stacks and workflow hacks from @coetz.ai.</p>
+    </div>
+    <div class="footer-col">
+      <h4>The Hub</h4>
+      <ul>
+        <li><a href="ai-tools-reclaim-5-hours/">5 Hours Back With AI</a></li>
+        <li><a href="chatgpt-vs-claude/">ChatGPT vs Claude</a></li>
+        <li><a href="rcf-prompt-framework/">R-C-F Framework</a></li>
+        <li><a href="ai-productivity-uk/">AI Productivity UK</a></li>
+        <li><a href="founders-ai-stack/">Founder's AI Stack</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find me</h4>
+      <ul>
+        <li><a href="https://instagram.com/coetz.ai">Instagram @coetz.ai</a></li>
+        <li><a href="../#products">Products</a></li>
+        <li><a href="../links/">All Links</a></li>
+        <li><a href="../media-kit/">Media Kit</a></li>
+        <li><a href="mailto:ben@coetz.uk">ben@coetz.uk</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span class="current-year"></span> Coetz.uk · <a href="../#newsletter">Newsletter</a> · Built in Weston-super-Mare 🇬🇧</p>
+    <p>Powered by obsessive AI tool testing.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.current-year').forEach(y => {
+    y.textContent = new Date().getFullYear();
+  });
+</script>
+</body>
+</html>

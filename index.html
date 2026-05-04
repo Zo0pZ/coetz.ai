@@ -3,8 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coetz.uk — AI Tools & Productivity</title>
-<meta name="description" content="AI tools tested so you don't have to. Daily prompts, workflow hacks and tool reviews from @coetz.ai.">
+<title>Coetz.uk — AI Tools & Productivity for UK Professionals</title>
+<meta name="description" content="AI tools tested so you don't have to. Daily prompts, workflow hacks, and honest tool reviews from @coetz.ai — the UK's go-to source for AI productivity.">
+<link rel="canonical" href="https://coetz.uk/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://coetz.uk/">
+<meta property="og:title" content="Coetz.uk — AI Tools & Productivity for UK Professionals">
+<meta property="og:description" content="AI tools tested so you don't have to. Daily prompts, workflow hacks, and honest tool reviews from @coetz.ai — 71K followers and counting.">
+<meta property="og:image" content="https://coetz.uk/media/og-card.png">
+<meta property="og:site_name" content="Coetz.uk">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@coetz_ai">
+<meta name="twitter:title" content="Coetz.uk — AI Tools & Productivity for UK Professionals">
+<meta name="twitter:description" content="AI tools tested so you don't have to. Prompts, stacks and workflow hacks from @coetz.ai.">
+<meta name="twitter:image" content="https://coetz.uk/media/og-card.png">
+
+<!-- Additional SEO -->
+<meta name="robots" content="index, follow">
+<meta name="author" content="Coetz.uk">
+<meta name="keywords" content="AI tools UK, AI productivity, AI prompts, ChatGPT tips, Claude AI, AI workflow, digital transformation UK, AI for professionals">
+
+<!-- JSON-LD Schema: Person + WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://coetz.uk/#person",
+      "name": "Coetz",
+      "url": "https://coetz.uk",
+      "sameAs": [
+        "https://instagram.com/coetz.ai",
+        "https://coetz.uk"
+      ],
+      "knowsAbout": ["Artificial Intelligence", "AI Productivity", "AI Tools", "Prompt Engineering", "Workflow Automation"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Weston-super-Mare",
+        "addressCountry": "GB"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://coetz.uk/#website",
+      "url": "https://coetz.uk",
+      "name": "Coetz.uk",
+      "description": "AI tools tested so you don't have to. Daily prompts, workflow hacks and tool reviews.",
+      "publisher": { "@id": "https://coetz.uk/#person" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://coetz.uk/blog/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ── RESET & BASE ── */
@@ -881,6 +942,87 @@ footer {
   .newsletter-block { padding: 40px 24px; }
   footer { padding: 40px 20px 28px; }
 }
+
+/* ── BLOG TEASER ── */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.blog-card {
+  background: var(--panel);
+  border: 1px solid var(--lift);
+  border-radius: 16px;
+  padding: 28px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color .25s, transform .25s;
+  position: relative;
+  overflow: hidden;
+}
+.blog-card:hover { border-color: var(--rimhi); transform: translateY(-3px); }
+
+.blog-card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 3px;
+  display: inline-block;
+  align-self: flex-start;
+}
+.blog-card:nth-child(1) .blog-card-tag { background: rgba(79,255,176,.1); color: var(--sig); }
+.blog-card:nth-child(2) .blog-card-tag { background: rgba(212,255,0,.1); color: var(--volt); }
+.blog-card:nth-child(3) .blog-card-tag { background: rgba(160,196,255,.1); color: var(--ice); }
+
+.blog-card-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+}
+
+.blog-card-body {
+  font-size: 13px;
+  color: var(--t2);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.blog-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--lift);
+  margin-top: auto;
+}
+
+.blog-card-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  letter-spacing: 0.5px;
+}
+
+.blog-card-arrow {
+  font-size: 14px;
+  color: var(--t3);
+  transition: color .2s, transform .2s;
+}
+.blog-card:hover .blog-card-arrow { color: var(--sig); transform: translateX(3px); }
+
+.blog-cta-row {
+  text-align: center;
+  margin-top: 36px;
+}
 </style>
 </head>
 <body>
@@ -894,6 +1036,7 @@ footer {
   <a href="#" class="nav-brand">Coetz<span class="tld">.uk</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="blog/">Blog</a></li>
     <li><a href="#products">Products</a></li>
     <li><a href="#newsletter">Newsletter</a></li>
     <li><a href="links/">Links</a></li>
@@ -1109,6 +1252,49 @@ footer {
   </div>
 </section>
 
+<!-- Blog Teaser -->
+<section id="blog" style="padding-top:0;">
+  <div class="section-eye">The Hub</div>
+  <h2 class="section-h">Guides for the<br><em>AI-powered professional.</em></h2>
+  <p class="section-p">In-depth guides, tool breakdowns, and workflow frameworks. Save-worthy content designed for UK professionals who want signal, not noise.</p>
+
+  <div class="blog-grid">
+    <a href="blog/ai-tools-reclaim-5-hours/" class="blog-card">
+      <div class="blog-card-tag">Productivity</div>
+      <div class="blog-card-title">3 AI Tools to Reclaim 5 Hours of Your Week</div>
+      <div class="blog-card-body">The exact tools and prompts I use to automate the repetitive parts of my workflow — from inbox zero to first-draft content.</div>
+      <div class="blog-card-foot">
+        <span class="blog-card-meta">5 min read · AI Productivity UK</span>
+        <span class="blog-card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="blog/chatgpt-vs-claude/" class="blog-card">
+      <div class="blog-card-tag">AI Battle</div>
+      <div class="blog-card-title">ChatGPT vs Claude in 2025: Which Should You Actually Use?</div>
+      <div class="blog-card-body">Same brief. Two models. Tested across writing, research, coding, and reasoning. One honest verdict — no paid placement.</div>
+      <div class="blog-card-foot">
+        <span class="blog-card-meta">7 min read · Tool Comparison</span>
+        <span class="blog-card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="blog/rcf-prompt-framework/" class="blog-card">
+      <div class="blog-card-tag">Prompts</div>
+      <div class="blog-card-title">The R-C-F Framework: Write AI Prompts That Actually Work</div>
+      <div class="blog-card-body">Role, Context, Format — the three-part structure behind every prompt in the 200 Prompt Pack. Learn it once, use it everywhere.</div>
+      <div class="blog-card-foot">
+        <span class="blog-card-meta">4 min read · Prompt Engineering</span>
+        <span class="blog-card-arrow">→</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="blog-cta-row">
+    <a href="blog/" class="btn-ghost">View all guides →</a>
+  </div>
+</section>
+
 <!-- Newsletter -->
 <section id="newsletter" style="padding-top:0; padding-bottom:100px;">
   <div class="newsletter-block">
@@ -1135,6 +1321,7 @@ footer {
       <h4>Links</h4>
       <ul>
         <li><a href="#about">About</a></li>
+        <li><a href="blog/">The Hub</a></li>
         <li><a href="#products">Products</a></li>
         <li><a href="#newsletter">Newsletter</a></li>
         <li><a href="links/">All Links</a></li>
