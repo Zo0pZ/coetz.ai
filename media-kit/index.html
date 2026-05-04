@@ -734,6 +734,15 @@ body {
 
 .site-links a:hover { color: var(--sig); }
 
+.foot {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  text-align: center;
+  letter-spacing: 0.5px;
+  padding: 16px 0 32px;
+}
+
 /* ── PAGE ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity:0; transform:translateY(24px); }
@@ -1122,6 +1131,12 @@ body {
   <a href="../links/">All Links</a>
   <a href="../media-kit/">Media Kit</a>
 </div>
+<div class="foot">© <span class="current-year"></span> Coetz.ai · Weston-super-Mare, England 🇬🇧</div>
 
+<script>
+  document.querySelectorAll('.current-year').forEach(year => {
+    year.textContent = new Date().getFullYear();
+  });
+</script>
 </body>
 </html>

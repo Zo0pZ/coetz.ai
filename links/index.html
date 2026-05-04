@@ -492,11 +492,16 @@
     <a href="../media-kit/">Media Kit</a>
   </div>
   <div class="foot">
-    coetz.ai · @coetz.ai<br>
+    © <span class="current-year"></span> coetz.ai · @coetz.ai<br>
     Weston-super-Mare, England 🇬🇧<br><br>
     Affiliate disclosure: some links earn me a small commission<br>at no extra cost to you. I only recommend tools I actually use.
   </div>
 
 </div>
+<script>
+  document.querySelectorAll('.current-year').forEach(year => {
+    year.textContent = new Date().getFullYear();
+  });
+</script>
 </body>
 </html>

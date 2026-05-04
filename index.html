@@ -1148,12 +1148,16 @@ footer {
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Coetz.uk · <a href="#">Affiliate disclosure</a> · Built in Weston-super-Mare 🇬🇧</p>
+    <p>© <span class="current-year"></span> Coetz.uk · <a href="#">Affiliate disclosure</a> · Built in Weston-super-Mare 🇬🇧</p>
     <p>Powered by obsessive AI tool testing.</p>
   </div>
 </footer>
 
 <script>
+  document.querySelectorAll('.current-year').forEach(year => {
+    year.textContent = new Date().getFullYear();
+  });
+
   // Custom cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
