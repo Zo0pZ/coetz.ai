@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coetz.uk — AI Tools & Productivity</title>
+<meta name="description" content="AI tools tested so you don't have to. Daily prompts, workflow hacks and tool reviews from @coetz.ai.">
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --ink:    #07080a;
+  --deep:   #0b0d11;
+  --surf:   #111418;
+  --panel:  #161b22;
+  --lift:   #1d232e;
+  --rim:    #262f3c;
+  --rimhi:  #30404f;
+  --sig:    #4fffb0;
+  --volt:   #d4ff00;
+  --ice:    #a0c4ff;
+  --coral:  #ff7eb3;
+  --t1:     #edf0f4;
+  --t2:     #68808f;
+  --t3:     #32404d;
+  --t4:     #1a2530;
+}
+
+body {
+  font-family: 'Epilogue', sans-serif;
+  background: var(--ink);
+  color: var(--t1);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CUSTOM CURSOR ── */
+.cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  background: var(--sig);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform .1s, width .2s, height .2s, opacity .2s;
+  mix-blend-mode: screen;
+}
+.cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1px solid rgba(79,255,176,.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: transform .12s ease, width .25s, height .25s;
+}
+body:has(a:hover) .cursor, body:has(button:hover) .cursor { width:18px; height:18px; }
+
+/* ── NOISE OVERLAY ── */
+body::after {
+  content:'';
+  position:fixed; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: .025;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0 40px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(7,8,10,.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--lift);
+}
+
+.nav-brand {
+  font-family: 'Anybody', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  color: var(--t1);
+}
+.nav-brand .tld { color: var(--sig); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--t2);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--t1); }
+
+.nav-cta {
+  font-family: 'Anybody', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  font-style: italic;
+  background: var(--sig);
+  color: var(--ink);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.nav-cta:hover { opacity: .85; }
+
+@media (max-width:700px) {
+  .nav-links { display:none; }
+  nav { padding: 0 20px; }
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 24px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated grid background */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--lift) 1px, transparent 1px),
+    linear-gradient(90deg, var(--lift) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: .35;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* Glow blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.blob-1 {
+  width: 500px; height: 500px;
+  background: rgba(79,255,176,.07);
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  animation: drift1 12s ease-in-out infinite alternate;
+}
+.blob-2 {
+  width: 300px; height: 300px;
+  background: rgba(212,255,0,.05);
+  bottom: 100px; right: 10%;
+  animation: drift2 9s ease-in-out infinite alternate;
+}
+.blob-3 {
+  width: 250px; height: 250px;
+  background: rgba(160,196,255,.05);
+  bottom: 150px; left: 8%;
+  animation: drift2 11s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes drift1 {
+  from { transform: translateX(-55%) translateY(0); }
+  to   { transform: translateX(-45%) translateY(40px); }
+}
+@keyframes drift2 {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-30px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Scrolling ticker above headline */
+.ticker-wrap {
+  overflow: hidden;
+  width: 280px;
+  height: 28px;
+  background: var(--panel);
+  border: 1px solid var(--lift);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.ticker {
+  display: flex;
+  gap: 40px;
+  animation: ticker 18s linear infinite;
+  white-space: nowrap;
+  padding-left: 100%;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+.ticker span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--t3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ticker span::before {
+  content: '⌬';
+  color: var(--sig);
+  font-size: 8px;
+}
+
+/* Main headline */
+.hero-hl {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(44px, 9vw, 96px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: .95;
+  letter-spacing: -2px;
+  max-width: 900px;
+}
+
+.hero-hl .line-sig  { color: var(--sig);  display: block; }
+.hero-hl .line-volt { color: var(--volt); display: block; }
+.hero-hl .line-dim  { color: var(--t3);   display: block; }
+
+.hero-sub {
+  font-size: clamp(14px, 2vw, 17px);
+  color: var(--t2);
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+.hero-sub strong { color: var(--t1); }
+
+/* CTA cluster */
+.cta-cluster {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.btn-primary {
+  font-family: 'Anybody', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  font-style: italic;
+  background: var(--sig);
+  color: var(--ink);
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity .2s, transform .2s;
+  letter-spacing: -0.2px;
+}
+.btn-primary:hover { opacity:.87; transform:translateY(-2px); }
+
+.btn-ghost {
+  font-family: 'Anybody', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+  background: transparent;
+  color: var(--t1);
+  border: 1px solid var(--rim);
+  padding: 14px 28px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color .2s, transform .2s;
+}
+.btn-ghost:hover { border-color: var(--rimhi); transform:translateY(-2px); }
+
+/* Social proof row */
+.proof-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.proof-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--t3);
+  letter-spacing: 0.5px;
+}
+.proof-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--sig);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; }
+  50%      { opacity:.3; }
+}
+
+/* Scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 32px; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+  animation: bob 2.5s ease-in-out infinite;
+}
+@keyframes bob {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(8px); }
+}
+.scroll-hint span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--t3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.scroll-arrow {
+  width: 1px; height: 28px;
+  background: linear-gradient(var(--t3), transparent);
+}
+
+/* ── SECTION SHARED ── */
+section {
+  padding: 100px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.section-eye {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sig);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.section-eye::before { content: '//'; opacity:.5; }
+
+.section-h {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(28px, 4.5vw, 52px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+.section-h em { font-style: normal; color: var(--sig); }
+
+.section-p {
+  font-size: 15px;
+  color: var(--t2);
+  max-width: 520px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+}
+
+/* ── WHAT I DO GRID ── */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.pillar-card {
+  background: var(--panel);
+  border: 1px solid var(--lift);
+  border-radius: 16px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .25s, transform .25s;
+}
+.pillar-card:hover { border-color: var(--rimhi); transform: translateY(-3px); }
+
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1.5px;
+}
+.pillar-card:nth-child(1)::before { background: var(--sig); }
+.pillar-card:nth-child(2)::before { background: var(--volt); }
+.pillar-card:nth-child(3)::before { background: var(--ice); }
+.pillar-card:nth-child(4)::before { background: var(--coral); }
+
+.pillar-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+  display: block;
+}
+.pillar-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  font-style: italic;
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+.pillar-body {
+  font-size: 13.5px;
+  color: var(--t2);
+  line-height: 1.65;
+}
+
+/* ── NUMBERS BAR ── */
+.numbers-bar {
+  background: var(--panel);
+  border-top: 1px solid var(--lift);
+  border-bottom: 1px solid var(--lift);
+  padding: 48px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.num-item {
+  flex: 1;
+  min-width: 160px;
+  text-align: center;
+  padding: 20px;
+  border-right: 1px solid var(--lift);
+}
+.num-item:last-child { border-right: none; }
+
+.num-val {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(36px,5vw,56px);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 6px;
+  display: block;
+}
+.num-item:nth-child(1) .num-val { color: var(--sig); }
+.num-item:nth-child(2) .num-val { color: var(--volt); }
+.num-item:nth-child(3) .num-val { color: var(--ice); }
+.num-item:nth-child(4) .num-val { color: var(--coral); }
+
+.num-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* ── PRODUCTS ── */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.prod-card {
+  background: var(--panel);
+  border: 1px solid var(--lift);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color .25s, transform .25s;
+  display: flex;
+  flex-direction: column;
+}
+.prod-card:hover { transform: translateY(-3px); }
+.prod-card:nth-child(1):hover { border-color: rgba(79,255,176,.4); }
+.prod-card:nth-child(2):hover { border-color: rgba(212,255,0,.4); }
+.prod-card:nth-child(3):hover { border-color: rgba(160,196,255,.4); }
+
+.prod-card-top {
+  padding: 28px;
+  flex: 1;
+}
+
+.prod-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.prod-card:nth-child(1) .prod-tag { background: rgba(79,255,176,.1); color: var(--sig); }
+.prod-card:nth-child(2) .prod-tag { background: rgba(212,255,0,.1); color: var(--volt); }
+.prod-card:nth-child(3) .prod-tag { background: rgba(160,196,255,.1); color: var(--ice); }
+
+.prod-card-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: italic;
+  margin-bottom: 10px;
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+}
+.prod-card-body {
+  font-size: 13px;
+  color: var(--t2);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.prod-card-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.prod-card-items li {
+  font-size: 12.5px;
+  color: var(--t2);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.prod-card-items li::before {
+  content: '✓';
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.prod-card:nth-child(1) .prod-card-items li::before { color: var(--sig); }
+.prod-card:nth-child(2) .prod-card-items li::before { color: var(--volt); }
+.prod-card:nth-child(3) .prod-card-items li::before { color: var(--ice); }
+
+.prod-card-foot {
+  border-top: 1px solid var(--lift);
+  padding: 18px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.prod-price {
+  font-family: 'Anybody', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.5px;
+}
+.prod-card:nth-child(1) .prod-price { color: var(--sig); }
+.prod-card:nth-child(2) .prod-price { color: var(--volt); }
+.prod-card:nth-child(3) .prod-price { color: var(--ice); }
+
+.prod-buy {
+  font-family: 'Anybody', sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  font-style: italic;
+  padding: 9px 18px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.prod-buy:hover { opacity: .85; }
+.prod-card:nth-child(1) .prod-buy { background: var(--sig); color: var(--ink); }
+.prod-card:nth-child(2) .prod-buy { background: var(--volt); color: var(--ink); }
+.prod-card:nth-child(3) .prod-buy { background: var(--ice); color: var(--ink); }
+
+/* ── NEWSLETTER ── */
+.newsletter-block {
+  background: var(--panel);
+  border: 1px solid var(--lift);
+  border-radius: 20px;
+  padding: 60px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sig), var(--volt), var(--ice), var(--sig));
+  background-size: 200%;
+  animation: shimmer 4s linear infinite;
+}
+@keyframes shimmer {
+  from { background-position: 0%; }
+  to   { background-position: 200%; }
+}
+
+.newsletter-block .section-eye { justify-content: center; }
+
+.newsletter-block .section-h { max-width: 600px; margin: 0 auto 16px; }
+
+.newsletter-block .section-p { margin: 0 auto 36px; }
+
+.email-form {
+  display: flex;
+  gap: 10px;
+  max-width: 440px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.email-input {
+  flex: 1;
+  min-width: 220px;
+  background: var(--deep);
+  border: 1px solid var(--rim);
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 14px;
+  color: var(--t1);
+  outline: none;
+  transition: border-color .2s;
+}
+.email-input::placeholder { color: var(--t3); }
+.email-input:focus { border-color: var(--sig); }
+
+.email-btn {
+  font-family: 'Anybody', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  font-style: italic;
+  background: var(--sig);
+  color: var(--ink);
+  border: none;
+  padding: 13px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity .2s;
+}
+.email-btn:hover { opacity:.87; }
+
+.email-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* ── TOOLS MARQUEE ── */
+.marquee-section {
+  padding: 40px 0;
+  border-top: 1px solid var(--lift);
+  border-bottom: 1px solid var(--lift);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.marquee-label {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 20px;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 32px;
+  border-right: 1px solid var(--lift);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.marquee-item span {
+  font-family: 'Anybody', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--t3);
+  letter-spacing: -0.2px;
+  transition: color .2s;
+}
+.marquee-item:hover span { color: var(--t1); }
+
+.marquee-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--deep);
+  border-top: 1px solid var(--lift);
+  padding: 48px 40px 36px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+@media (max-width:700px) {
+  .footer-inner { grid-template-columns: 1fr; }
+}
+
+.footer-brand .name {
+  font-family: 'Anybody', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.footer-brand .name span { color: var(--sig); }
+
+.footer-brand p {
+  font-size: 13px;
+  color: var(--t2);
+  line-height: 1.65;
+  max-width: 240px;
+}
+
+.footer-col h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 14px;
+}
+
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+
+.footer-col ul a {
+  font-size: 13px;
+  color: var(--t2);
+  text-decoration: none;
+  transition: color .2s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.footer-col ul a:hover { color: var(--t1); }
+.footer-col ul a::before {
+  content: '›';
+  color: var(--t3);
+  font-size: 13px;
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--lift);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-bottom p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  letter-spacing: 0.5px;
+}
+
+.footer-bottom a {
+  color: var(--sig);
+  text-decoration: none;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(32px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp .7s ease forwards;
+}
+
+.hero-content > * { animation: fadeUp .7s ease both; }
+.hero-content > *:nth-child(1) { animation-delay: .0s; }
+.hero-content > *:nth-child(2) { animation-delay: .1s; }
+.hero-content > *:nth-child(3) { animation-delay: .2s; }
+.hero-content > *:nth-child(4) { animation-delay: .3s; }
+.hero-content > *:nth-child(5) { animation-delay: .4s; }
+.hero-content > *:nth-child(6) { animation-delay: .5s; }
+
+@media (max-width:600px) {
+  section { padding: 60px 20px; }
+  .numbers-bar { padding: 32px 20px; }
+  .newsletter-block { padding: 40px 24px; }
+  footer { padding: 40px 20px 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-brand">Coetz<span class="tld">.uk</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="links/">Links</a></li>
+  </ul>
+  <a href="#newsletter" class="nav-cta">Get the Free Kit →</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero" style="padding:0; max-width:100%; margin:0;">
+  <div class="hero-grid"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="hero-content">
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <span>AI Tools</span>
+        <span>Prompt Hacks</span>
+        <span>Workflow Automation</span>
+        <span>No Fluff</span>
+        <span>Daily Content</span>
+        <span>Tested. Not Curated.</span>
+        <span>AI Tools</span>
+        <span>Prompt Hacks</span>
+        <span>Workflow Automation</span>
+        <span>No Fluff</span>
+        <span>Daily Content</span>
+        <span>Tested. Not Curated.</span>
+      </div>
+    </div>
+
+    <h1 class="hero-hl">
+      <span class="line-sig">AI tools.</span>
+      <span class="line-volt">Actually tested.</span>
+      <span class="line-dim">Zero hype.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Daily prompts, workflow hacks, and tool reviews from <strong>@coetz.ai</strong> — the faceless Instagram page cutting through the AI noise so you don't have to.
+    </p>
+
+    <div class="cta-cluster">
+      <a href="#newsletter" class="btn-primary">↓ Get the Free Prompt Kit</a>
+      <a href="https://instagram.com/coetz.ai" class="btn-ghost">📸 Follow @coetz.ai</a>
+    </div>
+
+    <div class="proof-row">
+      <div class="proof-item">
+        <div class="proof-dot"></div>
+        71K Instagram followers
+      </div>
+      <div class="proof-item">
+        <div class="proof-dot" style="background:var(--volt);"></div>
+        50 free prompts
+      </div>
+      <div class="proof-item">
+        <div class="proof-dot" style="background:var(--ice);"></div>
+        New content daily
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- Numbers bar -->
+<div class="numbers-bar">
+  <div class="num-item">
+    <span class="num-val">71K</span>
+    <span class="num-lbl">Instagram Followers</span>
+  </div>
+  <div class="num-item">
+    <span class="num-val">200+</span>
+    <span class="num-lbl">Prompts Written</span>
+  </div>
+  <div class="num-item">
+    <span class="num-val">25+</span>
+    <span class="num-lbl">Tools Reviewed</span>
+  </div>
+  <div class="num-item">
+    <span class="num-val">Daily</span>
+    <span class="num-lbl">New Content</span>
+  </div>
+</div>
+
+<!-- Tools marquee -->
+<div class="marquee-section">
+  <div class="marquee-label">Tools I cover</div>
+  <div class="marquee-track">
+    <!-- First set -->
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--sig);"></div><span>ChatGPT</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--volt);"></div><span>Claude</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--ice);"></div><span>Perplexity</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--sig);"></div><span>Notion AI</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--volt);"></div><span>Descript</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--ice);"></div><span>Make.com</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--sig);"></div><span>Otter.ai</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--volt);"></div><span>NotebookLM</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--ice);"></div><span>Gemini</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--sig);"></div><span>Midjourney</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--volt);"></div><span>Runway</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--ice);"></div><span>ElevenLabs</span></div>
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--sig);"></div><span>ChatGPT</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--volt);"></div><span>Claude</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--ice);"></div><span>Perplexity</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--sig);"></div><span>Notion AI</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--volt);"></div><span>Descript</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--ice);"></div><span>Make.com</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--sig);"></div><span>Otter.ai</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--volt);"></div><span>NotebookLM</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--ice);"></div><span>Gemini</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--sig);"></div><span>Midjourney</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--volt);"></div><span>Runway</span></div>
+    <div class="marquee-item"><div class="marquee-dot" style="background:var(--ice);"></div><span>ElevenLabs</span></div>
+  </div>
+</div>
+
+<!-- About / Pillars -->
+<section id="about">
+  <div class="section-eye">What I do</div>
+  <h2 class="section-h">Four content pillars.<br><em>One clear mission.</em></h2>
+  <p class="section-p">Cut through AI noise and deliver tools, prompts and workflows that make a measurable difference to how you work — every single day.</p>
+
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <span class="pillar-icon">🔧</span>
+      <div class="pillar-title">Tool Drops</div>
+      <div class="pillar-body">New and underrated AI tools reviewed honestly. If it saves real time, I cover it. If it's overhyped, I'll say that too.</div>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-icon">⌬</span>
+      <div class="pillar-title">Prompt Hacks</div>
+      <div class="pillar-body">Copy-paste prompts for real tasks — writing, research, emails, code, strategy. Built on the R-C-F framework for consistent results.</div>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-icon">⚔️</span>
+      <div class="pillar-title">AI Battles</div>
+      <div class="pillar-body">Head-to-head comparisons. Same brief. Two models. One verdict. No paid placements, ever — just honest test results.</div>
+    </div>
+    <div class="pillar-card">
+      <span class="pillar-icon">📋</span>
+      <div class="pillar-title">Stack Lists</div>
+      <div class="pillar-body">Curated AI toolkits by job type — freelancer, founder, marketer, student. Everything you need. Nothing you don't.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section id="products" style="padding-top:0;">
+  <div class="section-eye">Products</div>
+  <h2 class="section-h">Go deeper with<br><em>the paid resources.</em></h2>
+  <p class="section-p">Three digital products. All designed to pay for themselves on day one.</p>
+
+  <div class="products-grid">
+    <div class="prod-card">
+      <div class="prod-card-top">
+        <div class="prod-tag">Best Seller</div>
+        <div class="prod-card-title">200 AI Prompts<br>— Full Pack</div>
+        <div class="prod-card-body">200 copy-paste prompts across 12 categories. ChatGPT, Claude & Gemini ready. Delivered as PDF, Notion template, and Google Sheets.</div>
+        <ul class="prod-card-items">
+          <li>12 real-world categories</li>
+          <li>R-C-F framework baked in</li>
+          <li>Free lifetime updates</li>
+          <li>PDF + Notion + Sheets</li>
+        </ul>
+      </div>
+      <div class="prod-card-foot">
+        <span class="prod-price">£9</span>
+        <a href="#" class="prod-buy">Get it →</a>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-card-top">
+        <div class="prod-tag">Most Popular</div>
+        <div class="prod-card-title">AI Second Brain<br>— Notion Template</div>
+        <div class="prod-card-body">A fully built Notion workspace with AI integrations, prompt libraries, and automated workflows. Duplicate once, use forever.</div>
+        <ul class="prod-card-items">
+          <li>8 interconnected databases</li>
+          <li>50 AI prompts pre-loaded</li>
+          <li>Setup video included</li>
+          <li>Works on Notion free plan</li>
+        </ul>
+      </div>
+      <div class="prod-card-foot">
+        <span class="prod-price">£19</span>
+        <a href="#" class="prod-buy">Get it →</a>
+      </div>
+    </div>
+
+    <div class="prod-card">
+      <div class="prod-card-top">
+        <div class="prod-tag">For Founders</div>
+        <div class="prod-card-title">Founder's AI<br>Toolkit PDF</div>
+        <div class="prod-card-body">The exact AI tool stack for running a lean business without burning out. 40 pages. 25+ tools reviewed. Discount codes included.</div>
+        <ul class="prod-card-items">
+          <li>25+ tools covered honestly</li>
+          <li>My Monday automation routine</li>
+          <li>Tool discount codes inside</li>
+          <li>No upsells, no course funnel</li>
+        </ul>
+      </div>
+      <div class="prod-card-foot">
+        <span class="prod-price">£15</span>
+        <a href="#" class="prod-buy">Get it →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section id="newsletter" style="padding-top:0; padding-bottom:100px;">
+  <div class="newsletter-block">
+    <div class="section-eye">Free Resource</div>
+    <h2 class="section-h">50 prompts.<br><em>Yours free.</em></h2>
+    <p class="section-p">Drop your email and get the Coetz.ai Starter Kit — 50 copy-paste AI prompts across 5 categories, delivered instantly. Plus the weekly newsletter every Monday morning.</p>
+
+    <div class="email-form">
+      <input class="email-input" type="email" placeholder="your@email.com">
+      <button class="email-btn">Get the Kit →</button>
+    </div>
+    <div class="email-note">No spam. Unsubscribe any time. ~4 min read every Monday.</div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="name">Coetz<span>.uk</span></div>
+      <p>AI tools tested so you don't have to. Daily prompts, stacks and workflow hacks from @coetz.ai.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+        <li><a href="links/">All Links</a></li>
+        <li><a href="media-kit/">Media Kit</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find me</h4>
+      <ul>
+        <li><a href="https://instagram.com/coetz.ai">Instagram @coetz.ai</a></li>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="mailto:ben@coetz.uk">ben@coetz.uk</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Coetz.uk · <a href="#">Affiliate disclosure</a> · Built in Weston-super-Mare 🇬🇧</p>
+    <p>Powered by obsessive AI tool testing.</p>
+  </div>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx=0, my=0, rx=0, ry=0;
+  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+  (function loop() {
+    rx += (mx-rx)*.15; ry += (my-ry)*.15;
+    cursor.style.left = mx+'px'; cursor.style.top = my+'px';
+    ring.style.left = rx+'px'; ring.style.top = ry+'px';
+    requestAnimationFrame(loop);
+  })();
+</script>
+</body>
+</html>

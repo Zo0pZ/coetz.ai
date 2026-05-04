@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coetz.ai — Media Kit 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=JetBrains+Mono:wght@300;400;500&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --ink:   #07080a;
+  --deep:  #0b0d11;
+  --surf:  #111418;
+  --panel: #161b22;
+  --lift:  #1d232e;
+  --rim:   #262f3c;
+  --rimhi: #30404f;
+  --sig:   #4fffb0;
+  --volt:  #d4ff00;
+  --ice:   #a0c4ff;
+  --coral: #ff7eb3;
+  --t1:    #edf0f4;
+  --t2:    #68808f;
+  --t3:    #32404d;
+}
+
+body {
+  font-family: 'Epilogue', sans-serif;
+  background: var(--ink);
+  color: var(--t1);
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ── COVER ── */
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 0 40px;
+  border-bottom: 1px solid var(--lift);
+  position: relative;
+  overflow: hidden;
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(79,255,176,.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.cover-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cover-brand {
+  font-family: 'Anybody', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--t1);
+  letter-spacing: -0.3px;
+}
+.cover-brand span { color: var(--sig); }
+
+.cover-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--t3);
+}
+
+/* Accent line */
+.accent-rule {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sig) 0%, var(--volt) 50%, transparent 100%);
+}
+
+.cover-mid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 0 40px;
+}
+
+.kit-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sig);
+  background: rgba(79,255,176,.08);
+  border: 1px solid rgba(79,255,176,.2);
+  padding: 6px 14px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 28px;
+}
+
+.cover-h {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(52px, 10vw, 88px);
+  font-weight: 900;
+  font-style: italic;
+  line-height: .92;
+  letter-spacing: -3px;
+  margin-bottom: 32px;
+}
+
+.cover-h .l1 { color: var(--t1); display: block; }
+.cover-h .l2 { color: var(--sig); display: block; }
+.cover-h .l3 { color: var(--t3); display: block; font-size: .55em; letter-spacing: -1px; font-weight: 400; font-style: normal; margin-top: 8px; }
+
+.cover-desc {
+  font-size: 15px;
+  color: var(--t2);
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+
+.cover-stats {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.cstat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.cstat-n {
+  font-family: 'Anybody', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.cstat:nth-child(1) .cstat-n { color: var(--sig); }
+.cstat:nth-child(2) .cstat-n { color: var(--volt); }
+.cstat:nth-child(3) .cstat-n { color: var(--ice); }
+.cstat:nth-child(4) .cstat-n { color: var(--coral); }
+
+.cstat-l {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  color: var(--t3);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.cover-bot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 32px;
+  border-top: 1px solid var(--lift);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cover-contact {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--t3);
+  line-height: 1.7;
+  letter-spacing: 0.3px;
+}
+.cover-contact a { color: var(--sig); text-decoration: none; }
+
+.cover-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── SHARED SECTION ── */
+.section {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--lift);
+}
+
+.sec-eye {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sig);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.sec-eye::before { content:'//'; opacity:.4; }
+
+.sec-h {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.8px;
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+.sec-h em { font-style: normal; color: var(--sig); }
+
+.sec-sub {
+  font-size: 14px;
+  color: var(--t2);
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 36px;
+}
+
+/* ── AUDIENCE ── */
+.aud-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+@media (max-width:560px) { .aud-grid { grid-template-columns: 1fr; } }
+
+.aud-card {
+  background: var(--panel);
+  border: 1px solid var(--lift);
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.aud-card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 10px;
+}
+
+.aud-card-val {
+  font-family: 'Anybody', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.8px;
+  margin-bottom: 4px;
+}
+
+.aud-card:nth-child(1) .aud-card-val { color: var(--sig); }
+.aud-card:nth-child(2) .aud-card-val { color: var(--volt); }
+.aud-card:nth-child(3) .aud-card-val { color: var(--ice); }
+.aud-card:nth-child(4) .aud-card-val { color: var(--coral); }
+
+.aud-card-desc {
+  font-size: 12.5px;
+  color: var(--t2);
+  line-height: 1.55;
+}
+
+/* Demo bars */
+.demo-section { margin-top: 28px; }
+
+.demo-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 14px;
+}
+
+.demo-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.demo-bar-label {
+  font-size: 12.5px;
+  color: var(--t2);
+  min-width: 120px;
+}
+
+.demo-bar-track {
+  flex: 1;
+  height: 5px;
+  background: var(--lift);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.demo-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+.demo-bar-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--t2);
+  min-width: 36px;
+  text-align: right;
+}
+
+/* ── CONTENT FORMATS ── */
+.formats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width:560px) { .formats-grid { grid-template-columns: 1fr; } }
+
+.format-card {
+  background: var(--panel);
+  border: 1px solid var(--lift);
+  border-radius: 12px;
+  padding: 22px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s, transform .2s;
+}
+.format-card:hover { transform: translateY(-2px); }
+
+.format-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1.5px;
+}
+
+.format-card:nth-child(1)::before { background: var(--sig); }
+.format-card:nth-child(2)::before { background: var(--volt); }
+.format-card:nth-child(3)::before { background: var(--ice); }
+.format-card:nth-child(4)::before { background: var(--coral); }
+.format-card:nth-child(5)::before { background: var(--sig); }
+.format-card:nth-child(6)::before { background: var(--volt); }
+
+.format-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+.format-name {
+  font-family: 'Anybody', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.2px;
+  margin-bottom: 6px;
+}
+.format-desc {
+  font-size: 12px;
+  color: var(--t2);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.format-stat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.format-stat-dot { width: 5px; height: 5px; border-radius: 50%; }
+.format-card:nth-child(1) .format-stat-dot { background: var(--sig); }
+.format-card:nth-child(2) .format-stat-dot { background: var(--volt); }
+.format-card:nth-child(3) .format-stat-dot { background: var(--ice); }
+.format-card:nth-child(4) .format-stat-dot { background: var(--coral); }
+.format-card:nth-child(5) .format-stat-dot { background: var(--sig); }
+.format-card:nth-child(6) .format-stat-dot { background: var(--volt); }
+
+/* ── PACKAGES ── */
+.packages {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pkg {
+  background: var(--panel);
+  border: 1px solid var(--lift);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color .25s;
+}
+
+.pkg.featured {
+  border-color: rgba(79,255,176,.35);
+  box-shadow: 0 0 40px rgba(79,255,176,.06);
+}
+
+.pkg-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 26px;
+  border-bottom: 1px solid var(--lift);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pkg-name-wrap { display: flex; align-items: center; gap: 12px; }
+
+.pkg-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.pkg:nth-child(1) .pkg-icon { background: rgba(79,255,176,.1); }
+.pkg:nth-child(2) .pkg-icon { background: rgba(212,255,0,.1); }
+.pkg:nth-child(3) .pkg-icon { background: rgba(160,196,255,.1); }
+.pkg:nth-child(4) .pkg-icon { background: rgba(255,126,179,.1); }
+
+.pkg-name {
+  font-family: 'Anybody', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.3px;
+}
+
+.pkg-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 3px;
+}
+
+.pkg.featured .pkg-badge { background: rgba(79,255,176,.15); color: var(--sig); }
+
+.pkg-price {
+  font-family: 'Anybody', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -1px;
+  text-align: right;
+}
+
+.pkg:nth-child(1) .pkg-price { color: var(--sig); }
+.pkg:nth-child(2) .pkg-price { color: var(--volt); }
+.pkg:nth-child(3) .pkg-price { color: var(--ice); }
+.pkg:nth-child(4) .pkg-price { color: var(--coral); }
+
+.pkg-price-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--t3);
+  text-align: right;
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+.pkg-body {
+  padding: 22px 26px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width:560px) { .pkg-body { grid-template-columns: 1fr; } }
+
+.pkg-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pkg-includes li {
+  font-size: 13px;
+  color: var(--t2);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.pkg-includes li::before {
+  content: '✓';
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.pkg:nth-child(1) .pkg-includes li::before { color: var(--sig); }
+.pkg:nth-child(2) .pkg-includes li::before { color: var(--volt); }
+.pkg:nth-child(3) .pkg-includes li::before { color: var(--ice); }
+.pkg:nth-child(4) .pkg-includes li::before { color: var(--coral); }
+
+.pkg-detail {
+  font-size: 12.5px;
+  color: var(--t3);
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* ── GUIDELINES ── */
+.guidelines {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width:560px) { .guidelines { grid-template-columns: 1fr; } }
+
+.gl-card {
+  background: var(--panel);
+  border: 1px solid var(--lift);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.gl-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  font-style: italic;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gl-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.gl-dot.do   { background: var(--sig); }
+.gl-dot.dont { background: #ff5a5a; }
+
+.gl-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+
+.gl-list li {
+  font-size: 12.5px;
+  color: var(--t2);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.gl-list.do li::before   { content: '✓'; color: var(--sig); font-size: 10px; margin-top: 2px; flex-shrink: 0; }
+.gl-list.dont li::before { content: '✕'; color: #ff5a5a; font-size: 10px; margin-top: 2px; flex-shrink: 0; }
+
+/* ── PROCESS ── */
+.process {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.process::before {
+  content: '';
+  position: absolute;
+  left: 20px; top: 0; bottom: 0;
+  width: 1px;
+  background: var(--lift);
+  z-index: 0;
+}
+
+.proc-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.proc-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--panel);
+  border: 1px solid var(--sig);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Anybody', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--sig);
+  flex-shrink: 0;
+}
+
+.proc-body {}
+.proc-title {
+  font-family: 'Anybody', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  font-style: italic;
+  margin-bottom: 5px;
+  letter-spacing: -0.2px;
+}
+.proc-text {
+  font-size: 13px;
+  color: var(--t2);
+  line-height: 1.6;
+}
+
+/* ── CONTACT CTA ── */
+.contact-block {
+  background: var(--panel);
+  border: 1px solid rgba(79,255,176,.2);
+  border-radius: 16px;
+  padding: 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sig), transparent);
+}
+
+.contact-block::after {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(79,255,176,.05), transparent 70%);
+  pointer-events: none;
+}
+
+.contact-h {
+  font-family: 'Anybody', sans-serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+  line-height: 1.05;
+}
+
+.contact-h span { color: var(--sig); }
+
+.contact-sub {
+  font-size: 14px;
+  color: var(--t2);
+  max-width: 440px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.contact-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--t2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-item a { color: var(--sig); text-decoration: none; }
+
+.contact-btn {
+  font-family: 'Anybody', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  font-style: italic;
+  background: var(--sig);
+  color: var(--ink);
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.contact-btn:hover { opacity: .87; }
+
+.contact-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--t3);
+  margin-top: 16px;
+  letter-spacing: 0.5px;
+}
+
+.site-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 32px 0 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.site-links a {
+  color: var(--t2);
+  text-decoration: none;
+}
+
+.site-links a:hover { color: var(--sig); }
+
+/* ── PAGE ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.cover-mid, .cover-stats { animation: fadeUp .7s ease both; }
+.cover-mid { animation-delay: .1s; }
+.cover-stats { animation-delay: .25s; }
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══ -->
+<div class="cover">
+  <div class="accent-rule"></div>
+
+  <div class="cover-top">
+    <div class="cover-brand">Coetz<span>.uk</span> · @coetz.ai</div>
+    <div class="cover-label">Media Kit · 2025</div>
+  </div>
+
+  <div class="cover-mid">
+    <div class="kit-tag">// Partnership & Sponsorship</div>
+    <h1 class="cover-h">
+      <span class="l1">Brand</span>
+      <span class="l2">Media Kit.</span>
+      <span class="l3">AI Tools & Productivity · Instagram · @coetz.ai</span>
+    </h1>
+    <p class="cover-desc">
+      Coetz.ai is a faceless Instagram theme page delivering daily AI tool reviews, prompt hacks, and workflow automations to a highly engaged, purchase-intent audience of productivity-focused professionals.
+    </p>
+    <div class="cover-stats">
+      <div class="cstat">
+        <span class="cstat-n">71K</span>
+        <span class="cstat-l">Followers</span>
+      </div>
+      <div class="cstat">
+        <span class="cstat-n">4.8%</span>
+        <span class="cstat-l">Avg. Engagement</span>
+      </div>
+      <div class="cstat">
+        <span class="cstat-n">5K+</span>
+        <span class="cstat-l">Email Subscribers</span>
+      </div>
+      <div class="cstat">
+        <span class="cstat-n">£0</span>
+        <span class="cstat-l">Paid Promotions to Date</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bot">
+    <div class="cover-contact">
+      Partnership enquiries: <a href="mailto:ben@coetz.uk">ben@coetz.uk</a><br>
+      Instagram: <a href="https://instagram.com/coetz.ai">@coetz.ai</a> · Website: <a href="https://coetz.uk">coetz.uk</a>
+    </div>
+    <div class="cover-date">Updated May 2025</div>
+  </div>
+</div>
+
+<!-- ═══ AUDIENCE ═══ -->
+<div class="section">
+  <div class="sec-eye">Audience</div>
+  <h2 class="sec-h">Who's <em>watching.</em></h2>
+  <p class="sec-sub">An audience built entirely through organic content — no paid follower growth, no follow/unfollow tactics. Every follower chose to follow because the content was genuinely useful.</p>
+
+  <div class="aud-grid">
+    <div class="aud-card">
+      <div class="aud-card-label">Primary Age Range</div>
+      <div class="aud-card-val">25–34</div>
+      <div class="aud-card-desc">Core demographic — digitally native professionals actively building skills and optimising their workflows</div>
+    </div>
+    <div class="aud-card">
+      <div class="aud-card-label">Top Audience Location</div>
+      <div class="aud-card-val">UK / US</div>
+      <div class="aud-card-desc">60% English-speaking markets. Strong UK base (35%), US (28%), Australia, Canada rounding out top four</div>
+    </div>
+    <div class="aud-card">
+      <div class="aud-card-label">Save Rate (vs. avg)</div>
+      <div class="aud-card-val">3.2×</div>
+      <div class="aud-card-desc">Save rate is 3.2× the niche average — indicating high-intent, return-to-it content that drives considered purchasing</div>
+    </div>
+    <div class="aud-card">
+      <div class="aud-card-label">Avg. DM Shares / Post</div>
+      <div class="aud-card-val">340+</div>
+      <div class="aud-card-desc">DM shares are Instagram's strongest distribution signal — and the strongest indicator of word-of-mouth potential for sponsors</div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <div class="demo-label">Audience breakdown by profession</div>
+
+    <div class="demo-bar">
+      <div class="demo-bar-label">Marketers & Content</div>
+      <div class="demo-bar-track"><div class="demo-bar-fill" style="width:34%; background:var(--sig);"></div></div>
+      <div class="demo-bar-pct">34%</div>
+    </div>
+    <div class="demo-bar">
+      <div class="demo-bar-label">Founders & Solopreneurs</div>
+      <div class="demo-bar-track"><div class="demo-bar-fill" style="width:26%; background:var(--volt);"></div></div>
+      <div class="demo-bar-pct">26%</div>
+    </div>
+    <div class="demo-bar">
+      <div class="demo-bar-label">Tech & Product</div>
+      <div class="demo-bar-track"><div class="demo-bar-fill" style="width:19%; background:var(--ice);"></div></div>
+      <div class="demo-bar-pct">19%</div>
+    </div>
+    <div class="demo-bar">
+      <div class="demo-bar-label">Freelancers</div>
+      <div class="demo-bar-track"><div class="demo-bar-fill" style="width:14%; background:var(--coral);"></div></div>
+      <div class="demo-bar-pct">14%</div>
+    </div>
+    <div class="demo-bar">
+      <div class="demo-bar-label">Students & Others</div>
+      <div class="demo-bar-track"><div class="demo-bar-fill" style="width:7%; background:var(--t3);"></div></div>
+      <div class="demo-bar-pct">7%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTENT FORMATS ═══ -->
+<div class="section">
+  <div class="sec-eye">Content</div>
+  <h2 class="sec-h">Six formats.<br><em>All original.</em></h2>
+  <p class="sec-sub">Every piece of content is researched, written, and produced in-house. No AI-generated posts, no recycled content. Sponsorships are integrated naturally — never bolted on.</p>
+
+  <div class="formats-grid">
+    <div class="format-card">
+      <span class="format-icon">🃏</span>
+      <div class="format-name">Carousel Posts</div>
+      <div class="format-desc">7–12 slide educational content. Highest save rate of any format. Tool lists, frameworks, and how-tos.</div>
+      <div class="format-stat"><div class="format-stat-dot"></div>Avg. reach: 40–65K</div>
+    </div>
+    <div class="format-card">
+      <span class="format-icon">▶️</span>
+      <div class="format-name">Reels</div>
+      <div class="format-desc">15–45 second tool demos and AI comparisons. Highest DM share rate. Drives the majority of follower growth.</div>
+      <div class="format-stat"><div class="format-stat-dot"></div>Avg. views: 70–200K</div>
+    </div>
+    <div class="format-card">
+      <span class="format-icon">📖</span>
+      <div class="format-name">Stories</div>
+      <div class="format-desc">Daily audience touchpoints — polls, Q&As, link stickers. Highest conversion surface for product clicks.</div>
+      <div class="format-stat"><div class="format-stat-dot"></div>Avg. views: 8–14K</div>
+    </div>
+    <div class="format-card">
+      <span class="format-icon">📩</span>
+      <div class="format-name">Newsletter</div>
+      <div class="format-desc">Weekly email to 5,000+ subscribers. 48% open rate. Sponsor mentions carry over from Instagram to inbox.</div>
+      <div class="format-stat"><div class="format-stat-dot"></div>48% open rate</div>
+    </div>
+    <div class="format-card">
+      <span class="format-icon">🔗</span>
+      <div class="format-name">Link in Bio</div>
+      <div class="format-desc">Linktree-style landing page at coetz.uk — curated affiliate and sponsor placements with clear CTAs.</div>
+      <div class="format-stat"><div class="format-stat-dot"></div>~600 clicks/week</div>
+    </div>
+    <div class="format-card">
+      <span class="format-icon">🌟</span>
+      <div class="format-name">Highlights</div>
+      <div class="format-desc">Permanent story collections by tool or topic. Persistent discovery surface for new profile visitors.</div>
+      <div class="format-stat"><div class="format-stat-dot"></div>Evergreen visibility</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PACKAGES ═══ -->
+<div class="section">
+  <div class="sec-eye">Sponsorship Packages</div>
+  <h2 class="sec-h">Four ways to<br><em>work together.</em></h2>
+  <p class="sec-sub">All rates are per placement. Discounts available for multi-post campaigns. Minimum one-week notice required. Final creative approval always with Coetz.ai to protect audience trust.</p>
+
+  <div class="packages">
+
+    <div class="pkg featured">
+      <div class="pkg-head">
+        <div class="pkg-name-wrap">
+          <div class="pkg-icon">🎬</div>
+          <div>
+            <div class="pkg-name">Dedicated Reel</div>
+            <div style="font-size:12px;color:var(--t2);margin-top:2px;">Full 30–45 second product showcase</div>
+          </div>
+        </div>
+        <div>
+          <div class="pkg-badge">Most Popular</div>
+          <div class="pkg-price">£1,200</div>
+          <div class="pkg-price-note">per placement</div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <ul class="pkg-includes">
+          <li>Dedicated 30–45 second Reel</li>
+          <li>Reshared to Stories (organic views)</li>
+          <li>Pinned for 7 days post-publication</li>
+          <li>Performance report at 72 hours</li>
+          <li>Usage rights for your own channels (30 days)</li>
+        </ul>
+        <div class="pkg-detail">Best for: SaaS products, AI tools, productivity apps. The Reel format reaches the widest non-follower audience through Reels Explorer and DM sharing.</div>
+      </div>
+    </div>
+
+    <div class="pkg">
+      <div class="pkg-head">
+        <div class="pkg-name-wrap">
+          <div class="pkg-icon">🃏</div>
+          <div>
+            <div class="pkg-name">Carousel Integration</div>
+            <div style="font-size:12px;color:var(--t2);margin-top:2px;">One slide within an editorial carousel</div>
+          </div>
+        </div>
+        <div>
+          <div class="pkg-price">£600</div>
+          <div class="pkg-price-note">per placement</div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <ul class="pkg-includes">
+          <li>One branded slide within relevant carousel</li>
+          <li>Caption mention with context</li>
+          <li>Affiliate/product link in bio for 7 days</li>
+          <li>Story mention on publish day</li>
+          <li>Performance report at 72 hours</li>
+        </ul>
+        <div class="pkg-detail">Best for: tools that naturally fit within a list format (e.g. a "Chrome extensions" carousel). Feels editorial rather than promotional — high trust signal.</div>
+      </div>
+    </div>
+
+    <div class="pkg">
+      <div class="pkg-head">
+        <div class="pkg-name-wrap">
+          <div class="pkg-icon">📩</div>
+          <div>
+            <div class="pkg-name">Newsletter Placement</div>
+            <div style="font-size:12px;color:var(--t2);margin-top:2px;">Dedicated section in the weekly email</div>
+          </div>
+        </div>
+        <div>
+          <div class="pkg-price">£400</div>
+          <div class="pkg-price-note">per issue</div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <ul class="pkg-includes">
+          <li>Dedicated sponsor section (150–200 words)</li>
+          <li>Sent to 5,000+ subscribers (48% open rate)</li>
+          <li>Clickable CTA with UTM tracking</li>
+          <li>Instagram Story cross-promotion</li>
+          <li>Click report delivered post-send</li>
+        </ul>
+        <div class="pkg-detail">Best for: free trial offers, discount codes, and tools where email converts better than social. The newsletter audience is the most engaged segment.</div>
+      </div>
+    </div>
+
+    <div class="pkg">
+      <div class="pkg-head">
+        <div class="pkg-name-wrap">
+          <div class="pkg-icon">📦</div>
+          <div>
+            <div class="pkg-name">Campaign Bundle</div>
+            <div style="font-size:12px;color:var(--t2);margin-top:2px;">Multi-format, 30-day campaign</div>
+          </div>
+        </div>
+        <div>
+          <div class="pkg-price">£2,800</div>
+          <div class="pkg-price-note">per month (save 20%)</div>
+        </div>
+      </div>
+      <div class="pkg-body">
+        <ul class="pkg-includes">
+          <li>1× Dedicated Reel</li>
+          <li>1× Carousel integration</li>
+          <li>2× Newsletter placements</li>
+          <li>4× Story mentions (weekly)</li>
+          <li>Bio link placement for 30 days</li>
+          <li>Full campaign report at end of month</li>
+        </ul>
+        <div class="pkg-detail">Best for: product launches, ongoing brand awareness, or tools wanting sustained exposure to a growing audience over a full month.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ GUIDELINES ═══ -->
+<div class="section">
+  <div class="sec-eye">Brand Guidelines</div>
+  <h2 class="sec-h">What I will<br><em>and won't do.</em></h2>
+  <p class="sec-sub">Coetz.ai's value is built on honest, unsponsored-feeling content. These guidelines protect the audience relationship that makes sponsorships effective in the first place.</p>
+
+  <div class="guidelines">
+    <div class="gl-card">
+      <div class="gl-title"><div class="gl-dot do"></div>I will always</div>
+      <ul class="gl-list do">
+        <li>Disclose all paid partnerships clearly</li>
+        <li>Only promote tools I have actually used</li>
+        <li>Give an honest assessment — including limitations</li>
+        <li>Maintain creative control over all content</li>
+        <li>Deliver content on agreed timelines</li>
+        <li>Provide performance data post-campaign</li>
+        <li>Integrate sponsorships naturally into useful content</li>
+      </ul>
+    </div>
+    <div class="gl-card">
+      <div class="gl-title"><div class="gl-dot dont"></div>I won't</div>
+      <ul class="gl-list dont">
+        <li>Publish content I haven't reviewed for accuracy</li>
+        <li>Promote tools I don't believe in</li>
+        <li>Guarantee follower counts, clicks, or sales</li>
+        <li>Accept scripts I must read verbatim</li>
+        <li>Run more than one paid post per week</li>
+        <li>Promote competitors to current sponsors</li>
+        <li>Alter my editorial voice to suit a brief</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PROCESS ═══ -->
+<div class="section">
+  <div class="sec-eye">Working Together</div>
+  <h2 class="sec-h">From brief to<br><em>live in 5 steps.</em></h2>
+  <p class="sec-sub">A simple, low-friction process. Most campaigns go from first email to live content in under two weeks.</p>
+
+  <div class="process">
+    <div class="proc-step">
+      <div class="proc-num">01</div>
+      <div class="proc-body">
+        <div class="proc-title">Initial enquiry</div>
+        <div class="proc-text">Email ben@coetz.uk with your product, goal, and desired format. I'll confirm availability and send a rate card within 24 hours.</div>
+      </div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">02</div>
+      <div class="proc-body">
+        <div class="proc-title">Brief & access</div>
+        <div class="proc-text">You send a one-page brief covering key messages, audience, and any mandatory inclusions. Access to the product (trial or review account) is helpful but not required.</div>
+      </div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">03</div>
+      <div class="proc-body">
+        <div class="proc-title">Content creation</div>
+        <div class="proc-text">I create all content to my standard — script, design, filming, editing. You receive a preview 48 hours before publication for factual accuracy checks (not creative direction).</div>
+      </div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">04</div>
+      <div class="proc-body">
+        <div class="proc-title">Publication & promotion</div>
+        <div class="proc-text">Content goes live at the optimal time for your target audience. Stories, newsletter, and bio link placements follow the agreed schedule.</div>
+      </div>
+    </div>
+    <div class="proc-step">
+      <div class="proc-num">05</div>
+      <div class="proc-body">
+        <div class="proc-title">Performance report</div>
+        <div class="proc-text">A post-campaign report covering reach, engagement, saves, DM shares, link clicks, and story views — delivered within 5 days of campaign end.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONTACT ═══ -->
+<div class="section" style="border-bottom:none;">
+  <div class="contact-block">
+    <h2 class="contact-h">Ready to reach<br><span>the right audience?</span></h2>
+    <p class="contact-sub">Coetz.ai speaks to 71,000 people who actively want to spend money on AI tools. If your product belongs in their stack, let's talk.</p>
+
+    <div class="contact-details">
+      <div class="contact-item">📧 <a href="mailto:ben@coetz.uk">ben@coetz.uk</a></div>
+      <div class="contact-item">📸 <a href="https://instagram.com/coetz.ai">@coetz.ai on Instagram</a></div>
+      <div class="contact-item">🌐 <a href="https://coetz.uk">coetz.uk</a></div>
+    </div>
+
+    <a href="mailto:ben@coetz.uk?subject=Partnership Enquiry — Coetz.ai&body=Hi Ben,%0D%0A%0D%0AI'd like to discuss a partnership with Coetz.ai.%0D%0A%0D%0AProduct:%0D%0AGoal:%0D%0APreferred format:%0D%0ABudget range:%0D%0A%0D%0ALooking forward to hearing from you." class="contact-btn">
+      Send a Partnership Enquiry →
+    </a>
+
+    <div class="contact-note">Response time: within 24 hours on weekdays · Weston-super-Mare, England 🇬🇧</div>
+  </div>
+</div>
+
+<div class="site-links">
+  <a href="../">Home</a>
+  <a href="../links/">All Links</a>
+  <a href="../media-kit/">Media Kit</a>
+</div>
+
+</body>
+</html>
