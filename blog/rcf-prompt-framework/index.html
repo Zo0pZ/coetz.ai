@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The R-C-F Framework: Write AI Prompts That Actually Work | Coetz.uk</title>
+<meta name="description" content="Role, Context, Format — the three-part prompt structure that consistently produces better AI outputs. Learn it once, use it everywhere.">
+<link rel="canonical" href="https://coetz.uk/blog/rcf-prompt-framework/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://coetz.uk/blog/rcf-prompt-framework/">
+<meta property="og:title" content="The R-C-F Framework: Write AI Prompts That Actually Work">
+<meta property="og:description" content="Role, Context, Format — the three-part prompt structure that consistently produces better AI outputs. Learn it once, use it everywhere.">
+<meta property="og:image" content="https://coetz.uk/media/og-card.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The R-C-F Prompt Framework">
+<meta name="twitter:description" content="Role, Context, Format — the three-part structure that consistently produces better AI outputs.">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="prompt engineering, AI prompts, how to write better prompts, ChatGPT prompts, Claude prompts, R-C-F framework, prompt framework">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The R-C-F Framework: Write AI Prompts That Actually Work",
+  "description": "Role, Context, Format — the three-part prompt structure behind every prompt in the 200 Prompt Pack.",
+  "author": { "@type": "Person", "name": "Coetz", "url": "https://coetz.uk" },
+  "publisher": { "@type": "Person", "name": "Coetz", "url": "https://coetz.uk" },
+  "datePublished": "2025-05-01",
+  "dateModified": "2025-05-04",
+  "url": "https://coetz.uk/blog/rcf-prompt-framework/",
+  "inLanguage": "en-GB"
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:1em;scroll-behavior:smooth;}
+:root{--ink:#07080a;--deep:#0b0d11;--panel:#161b22;--lift:#1d232e;--rim:#262f3c;--rimhi:#30404f;--sig:#4fffb0;--volt:#d4ff00;--ice:#a0c4ff;--coral:#ff7eb3;--t1:#f4f7fb;--t2:#b8c5d0;--t3:#8796a5;--t4:#617181;}
+body{font-family:'Epilogue',sans-serif;font-size:1em;background:var(--ink);color:var(--t1);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,10,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--lift);}
+.nav-brand{font-family:'Anybody',sans-serif;font-size:20px;font-weight:900;font-style:italic;letter-spacing:-0.5px;text-decoration:none;color:var(--t1);}
+.nav-brand .tld{color:var(--sig);}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--t1);}
+.nav-cta{font-family:'Anybody',sans-serif;font-size:13px;font-weight:900;font-style:italic;background:var(--sig);color:var(--ink);border:none;padding:8px 18px;border-radius:6px;cursor:pointer;text-decoration:none;transition:opacity .2s;}
+.nav-cta:hover{opacity:.85;}
+@media(max-width:700px){.nav-links{display:none;}nav{padding:0 20px;}}
+.article-wrap{max-width:720px;margin:0 auto;padding:100px 24px 80px;}
+.breadcrumb{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-bottom:24px;display:flex;align-items:center;gap:8px;}
+.breadcrumb a{color:var(--t3);text-decoration:none;}
+.breadcrumb a:hover{color:var(--sig);}
+.breadcrumb-sep{color:var(--t4);}
+.article-tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;display:inline-block;margin-bottom:20px;background:rgba(79,255,176,.1);color:var(--sig);}
+.article-h1{font-family:'Anybody',sans-serif;font-size:clamp(32px,6vw,56px);font-weight:900;font-style:italic;line-height:1.0;letter-spacing:-1.5px;margin-bottom:20px;}
+.article-h1 em{font-style:normal;color:var(--sig);}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--lift);}
+.article-meta-item{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:0.5px;}
+.article-intro{font-size:17px;color:var(--t2);line-height:1.8;margin-bottom:48px;}
+.article-intro strong{color:var(--t1);}
+.article-body h2{font-family:'Anybody',sans-serif;font-size:clamp(22px,3.5vw,32px);font-weight:900;font-style:italic;letter-spacing:-0.5px;margin:52px 0 16px;}
+.article-body h2 em{font-style:normal;color:var(--sig);}
+.article-body p{font-size:15px;color:var(--t2);line-height:1.8;margin-bottom:20px;}
+.article-body p strong{color:var(--t1);}
+.article-body ul,.article-body ol{margin:0 0 20px 20px;}
+.article-body li{font-size:15px;color:var(--t2);line-height:1.75;margin-bottom:6px;}
+.article-body li strong{color:var(--t1);}
+.article-body a{color:var(--sig);text-decoration:none;}
+.article-body a:hover{text-decoration:underline;}
+
+/* RCF pillars */
+.rcf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0;}
+@media(max-width:500px){.rcf-grid{grid-template-columns:1fr;}}
+.rcf-card{background:var(--panel);border:1px solid var(--lift);border-radius:14px;padding:24px;position:relative;overflow:hidden;}
+.rcf-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
+.rcf-card:nth-child(1)::before{background:var(--sig);}
+.rcf-card:nth-child(2)::before{background:var(--volt);}
+.rcf-card:nth-child(3)::before{background:var(--ice);}
+.rcf-letter{font-family:'Anybody',sans-serif;font-size:52px;font-weight:900;font-style:italic;line-height:1;margin-bottom:4px;}
+.rcf-card:nth-child(1) .rcf-letter{color:var(--sig);}
+.rcf-card:nth-child(2) .rcf-letter{color:var(--volt);}
+.rcf-card:nth-child(3) .rcf-letter{color:var(--ice);}
+.rcf-word{font-family:'Anybody',sans-serif;font-size:15px;font-weight:900;font-style:italic;margin-bottom:10px;}
+.rcf-desc{font-size:13px;color:var(--t2);line-height:1.6;}
+
+/* prompt examples */
+.prompt-example{background:var(--panel);border:1px solid var(--lift);border-radius:14px;overflow:hidden;margin:28px 0;}
+.prompt-example-head{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid var(--lift);}
+.prompt-example-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);}
+.prompt-badge{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:3px;}
+.prompt-badge.before{background:rgba(255,100,100,.1);color:#ff7878;}
+.prompt-badge.after{background:rgba(79,255,176,.1);color:var(--sig);}
+.prompt-body{padding:16px 20px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--t2);line-height:1.7;}
+.prompt-body em{color:var(--t3);font-style:normal;}
+.prompt-body strong{color:var(--sig);}
+
+.callout{background:var(--panel);border:1px solid var(--lift);border-left:3px solid var(--sig);border-radius:0 12px 12px 0;padding:20px 24px;margin:32px 0;}
+.callout-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--sig);margin-bottom:8px;}
+.callout p{font-size:14px;color:var(--t2);line-height:1.7;margin:0;}
+.callout p strong{color:var(--t1);}
+
+.cta-block{background:var(--panel);border:1px solid rgba(79,255,176,.2);border-radius:16px;padding:40px;text-align:center;margin:52px 0;position:relative;overflow:hidden;}
+.cta-block::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sig),var(--volt));}
+.cta-block-eye{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--sig);margin-bottom:12px;}
+.cta-block h3{font-family:'Anybody',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:900;font-style:italic;letter-spacing:-0.5px;margin-bottom:10px;}
+.cta-block h3 em{font-style:normal;color:var(--sig);}
+.cta-block p{font-size:14px;color:var(--t2);line-height:1.7;max-width:440px;margin:0 auto 24px;}
+.btn-primary{font-family:'Anybody',sans-serif;font-size:14px;font-weight:900;font-style:italic;background:var(--sig);color:var(--ink);border:none;padding:13px 24px;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s;}
+.btn-primary:hover{opacity:.87;}
+.btn-ghost{font-family:'Anybody',sans-serif;font-size:13px;font-weight:700;font-style:italic;background:transparent;color:var(--t1);border:1px solid var(--rim);padding:12px 20px;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color .2s;margin-left:10px;}
+.btn-ghost:hover{border-color:var(--rimhi);}
+.related{margin-top:72px;padding-top:40px;border-top:1px solid var(--lift);}
+.related-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--t3);margin-bottom:20px;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.related-card{background:var(--panel);border:1px solid var(--lift);border-radius:12px;padding:18px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s;}
+.related-card:hover{border-color:var(--rimhi);transform:translateY(-2px);}
+.related-card-tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-bottom:8px;}
+.related-card-title{font-family:'Anybody',sans-serif;font-size:14px;font-weight:900;font-style:italic;line-height:1.2;letter-spacing:-0.2px;}
+footer{background:var(--deep);border-top:1px solid var(--lift);padding:48px 40px 36px;margin-top:80px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+@media(max-width:700px){.footer-inner{grid-template-columns:1fr;}}
+.footer-brand .name{font-family:'Anybody',sans-serif;font-size:22px;font-weight:900;font-style:italic;letter-spacing:-0.5px;margin-bottom:10px;}
+.footer-brand .name span{color:var(--sig);}
+.footer-brand p{font-size:13px;color:var(--t2);line-height:1.65;max-width:240px;}
+.footer-col h4{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:14px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-col ul a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:7px;}
+.footer-col ul a:hover{color:var(--t1);}
+.footer-col ul a::before{content:'›';color:var(--t3);font-size:13px;}
+.footer-bottom{max-width:1100px;margin:0 auto;padding-top:24px;border-top:1px solid var(--lift);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:0.5px;}
+.footer-bottom a{color:var(--sig);text-decoration:none;}
+@media(max-width:600px){.article-wrap{padding:88px 20px 60px;}footer{padding:40px 20px 28px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../" class="nav-brand">Coetz<span class="tld">.uk</span></a>
+  <ul class="nav-links">
+    <li><a href="../../#about">About</a></li>
+    <li><a href="../">Blog</a></li>
+    <li><a href="../../#products">Products</a></li>
+    <li><a href="../../#newsletter">Newsletter</a></li>
+    <li><a href="../../links/">Links</a></li>
+  </ul>
+  <a href="../../#newsletter" class="nav-cta">Get the Free Kit →</a>
+</nav>
+
+<div class="article-wrap">
+
+  <div class="breadcrumb">
+    <a href="../../">Coetz.uk</a>
+    <span class="breadcrumb-sep">/</span>
+    <a href="../">The Hub</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>Prompts</span>
+  </div>
+
+  <div class="article-tag">Prompt Engineering</div>
+  <h1 class="article-h1">The R-C-F Framework:<br><em>Prompts That Actually Work</em></h1>
+
+  <div class="article-meta">
+    <span class="article-meta-item">4 min read</span>
+    <span class="article-meta-item">Prompt Engineering</span>
+    <span class="article-meta-item">May 2025</span>
+    <span class="article-meta-item">Works on any AI</span>
+  </div>
+
+  <p class="article-intro">
+    Bad prompts get bad outputs. It's not the AI's fault — it's the brief. Most people write prompts like they're Googling: a few keywords and a vague hope. <strong>The R-C-F framework is a three-part structure</strong> that gives any AI model enough to produce something genuinely useful on the first pass.
+  </p>
+
+  <div class="article-body">
+
+    <div class="callout">
+      <div class="callout-label">Works with</div>
+      <p>This framework is model-agnostic. It works on <strong>Claude, ChatGPT, Gemini, Perplexity</strong> — any large language model. The examples below use Claude because it follows structured prompts most reliably, but the structure itself applies universally.</p>
+    </div>
+
+    <h2>The Three <em>Components</em></h2>
+
+    <div class="rcf-grid">
+      <div class="rcf-card">
+        <div class="rcf-letter">R</div>
+        <div class="rcf-word">Role</div>
+        <div class="rcf-desc">Tell the AI who it is. Not "you are an AI assistant" — that's useless. A specific role with domain expertise and a defined perspective.</div>
+      </div>
+      <div class="rcf-card">
+        <div class="rcf-letter">C</div>
+        <div class="rcf-word">Context</div>
+        <div class="rcf-desc">Give it the situation. Who is the audience? What's the goal? What constraints matter? What does it already need to know to answer well?</div>
+      </div>
+      <div class="rcf-card">
+        <div class="rcf-letter">F</div>
+        <div class="rcf-word">Format</div>
+        <div class="rcf-desc">Specify the output. Length, structure, tone, what to include and what to leave out. Don't leave this to chance — the AI will guess wrong.</div>
+      </div>
+    </div>
+
+    <p>That's it. Three components. Each one is doing different work — Role sets the model's perspective and expertise, Context gives it the raw materials, Format controls what it does with them. Leave any one out and the output degrades noticeably.</p>
+
+    <h2>Five Before / <em>After Examples</em></h2>
+    <p>The same request, written as a weak prompt and then as an R-C-F prompt. The difference in output quality is immediate.</p>
+
+    <p><strong>Example 1: Email draft</strong></p>
+    <div class="prompt-example">
+      <div class="prompt-example-head"><span class="prompt-example-label">Before (weak)</span><span class="prompt-badge before">Weak</span></div>
+      <div class="prompt-body">Write an email to a client about a delayed project.</div>
+    </div>
+    <div class="prompt-example">
+      <div class="prompt-example-head"><span class="prompt-example-label">After (R-C-F)</span><span class="prompt-badge after">Strong</span></div>
+      <div class="prompt-body"><strong>Role:</strong> You are a senior account manager who is direct, professional, and values the client relationship above all else.<br><br><strong>Context:</strong> I'm emailing a long-term client (Sarah at Meridian Design) to tell her a website project is delayed by two weeks due to a supplier issue on our end. She's busy and doesn't like excuses. We have a strong relationship and I want to keep it.<br><br><strong>Format:</strong> Write the email in under 120 words. Lead with the delay and the new date, then the reason (briefly, no blame-shifting), then what we're doing to minimise the impact. Close warmly. No "I hope this email finds you well."</div>
+    </div>
+
+    <p><strong>Example 2: Social media caption</strong></p>
+    <div class="prompt-example">
+      <div class="prompt-example-head"><span class="prompt-example-label">Before (weak)</span><span class="prompt-badge before">Weak</span></div>
+      <div class="prompt-body">Write an Instagram caption for a new product launch.</div>
+    </div>
+    <div class="prompt-example">
+      <div class="prompt-example-head"><span class="prompt-example-label">After (R-C-F)</span><span class="prompt-badge after">Strong</span></div>
+      <div class="prompt-body"><strong>Role:</strong> You are a UK-based content creator with a no-nonsense voice. You don't use hype or emojis excessively. Your audience trusts you because you're always honest.<br><br><strong>Context:</strong> Launching a 200-prompt AI pack aimed at freelancers and founders who are serious about saving time. The pack costs £9 and has just gone live. The Instagram audience is 25–40, UK-based, already familiar with AI tools.<br><br><strong>Format:</strong> One caption, under 100 words. Hook in the first line (no question openers). End with a CTA to click the link in bio. Two relevant hashtags maximum, at the end only.</div>
+    </div>
+
+    <p><strong>Example 3: Research summary</strong></p>
+    <div class="prompt-example">
+      <div class="prompt-example-head"><span class="prompt-example-label">Before (weak)</span><span class="prompt-badge before">Weak</span></div>
+      <div class="prompt-body">Summarise AI regulation in the UK.</div>
+    </div>
+    <div class="prompt-example">
+      <div class="prompt-example-head"><span class="prompt-example-label">After (R-C-F)</span><span class="prompt-badge after">Strong</span></div>
+      <div class="prompt-body"><strong>Role:</strong> You are a policy analyst who translates complex regulatory frameworks into plain English for non-lawyers.<br><br><strong>Context:</strong> The audience is a UK-based SME owner who has no legal background. They want to understand what AI regulations they actually need to pay attention to in 2025 — specifically around data handling, bias, and liability. They don't need historical background, just the current and upcoming landscape.<br><br><strong>Format:</strong> Structured with three subheadings (Data, Bias & Transparency, Liability). Under each, 2–3 sentences maximum. End with one sentence on the most urgent action to take. Total: under 250 words.</div>
+    </div>
+
+    <p><strong>Example 4: Meeting notes</strong></p>
+    <div class="prompt-example">
+      <div class="prompt-example-head"><span class="prompt-example-label">Before (weak)</span><span class="prompt-badge before">Weak</span></div>
+      <div class="prompt-body">Clean up these meeting notes.</div>
+    </div>
+    <div class="prompt-example">
+      <div class="prompt-example-head"><span class="prompt-example-label">After (R-C-F)</span><span class="prompt-badge after">Strong</span></div>
+      <div class="prompt-body"><strong>Role:</strong> You are an executive assistant who is known for producing crystal-clear meeting summaries that people actually read.<br><br><strong>Context:</strong> These are rough notes from a 45-minute strategy meeting between three co-founders. The notes include tangents, unresolved debates, and some shorthand only I understand. The summary will be shared with the full team who weren't in the room.<br><br><strong>Format:</strong> Three sections: (1) Key decisions made, (2) Actions with owner and deadline, (3) Open questions still unresolved. Bullet points only. Remove any content that was explicitly marked "parking lot." Do not add commentary or summarise the discussion — just extract the outputs.</div>
+    </div>
+
+    <p><strong>Example 5: Landing page copy</strong></p>
+    <div class="prompt-example">
+      <div class="prompt-example-head"><span class="prompt-example-label">Before (weak)</span><span class="prompt-badge before">Weak</span></div>
+      <div class="prompt-body">Write copy for my AI tool landing page.</div>
+    </div>
+    <div class="prompt-example">
+      <div class="prompt-example-head"><span class="prompt-example-label">After (R-C-F)</span><span class="prompt-badge after">Strong</span></div>
+      <div class="prompt-body"><strong>Role:</strong> You are a direct-response copywriter in the style of David Ogilvy — evidence-led, benefit-first, zero filler.<br><br><strong>Context:</strong> The product is a £9 digital prompt pack. The buyer is a time-poor freelancer or founder who is sceptical of AI hype. They've seen bad AI content and want to believe good AI is possible. The biggest objection is "this won't be any different from what I already try." The biggest desire is getting more done in less time without sacrificing quality.<br><br><strong>Format:</strong> Hero section only. Headline (max 8 words), subheadline (max 20 words), three bullet benefits (max 10 words each), CTA button text (max 5 words). No emojis.</div>
+    </div>
+
+    <h2>Common Mistakes <em>to Avoid</em></h2>
+    <ul>
+      <li><strong>Vague roles:</strong> "Act as an expert" tells the model nothing. "Act as a UK-based chartered accountant specialising in SME tax" tells it everything.</li>
+      <li><strong>Missing audience:</strong> Without knowing who the output is for, the AI defaults to a generic middle. Always specify who will read it.</li>
+      <li><strong>No length guidance:</strong> If you don't specify length, you'll get whatever the model thinks is appropriate — usually too long.</li>
+      <li><strong>Skipping the negative:</strong> Adding what to <em>exclude</em> is often as important as what to include. "No bullet points" or "don't use the word synergy" sharpens the output significantly.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="callout-label">Pro tip</div>
+      <p>Save your best R-C-F prompts as templates. Once you've dialled in a prompt for email drafts, client proposals or social captions, <strong>copy it into Notion or a text file and reuse it</strong>. The 200 Prompt Pack has 200 of these already written for you across 12 categories.</p>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-block-eye">200 Prompts</div>
+      <h3>All 200 prompts built on<br><em>R-C-F. Ready to copy-paste.</em></h3>
+      <p>The 200 AI Prompt Pack covers 12 real-world categories. Every prompt uses the R-C-F framework, tested across ChatGPT, Claude and Gemini. £9 — no fluff, no filler.</p>
+      <a href="../../#products" class="btn-primary">Get the 200 Prompt Pack →</a>
+      <a href="../../#newsletter" class="btn-ghost">50 free prompts first</a>
+    </div>
+
+    <div class="related">
+      <div class="related-label">Read next</div>
+      <div class="related-grid">
+        <a href="../chatgpt-vs-claude/" class="related-card">
+          <div class="related-card-tag">AI Battle</div>
+          <div class="related-card-title">ChatGPT vs Claude 2025</div>
+        </a>
+        <a href="../ai-tools-reclaim-5-hours/" class="related-card">
+          <div class="related-card-tag">Productivity</div>
+          <div class="related-card-title">3 AI Tools to Reclaim 5 Hours</div>
+        </a>
+        <a href="../founders-ai-stack/" class="related-card">
+          <div class="related-card-tag">Stacks</div>
+          <div class="related-card-title">The Founder's AI Stack</div>
+        </a>
+        <a href="../ai-productivity-uk/" class="related-card">
+          <div class="related-card-tag">UK Guide</div>
+          <div class="related-card-title">AI Productivity for UK Professionals</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="name">Coetz<span>.uk</span></div>
+      <p>AI tools tested so you don't have to. Daily prompts, stacks and workflow hacks from @coetz.ai.</p>
+    </div>
+    <div class="footer-col">
+      <h4>The Hub</h4>
+      <ul>
+        <li><a href="../">All Guides</a></li>
+        <li><a href="../chatgpt-vs-claude/">ChatGPT vs Claude</a></li>
+        <li><a href="../ai-tools-reclaim-5-hours/">5 Hours Back With AI</a></li>
+        <li><a href="../founders-ai-stack/">Founder's AI Stack</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find me</h4>
+      <ul>
+        <li><a href="https://instagram.com/coetz.ai">Instagram @coetz.ai</a></li>
+        <li><a href="../../#products">Products</a></li>
+        <li><a href="../../links/">All Links</a></li>
+        <li><a href="mailto:ben@coetz.uk">ben@coetz.uk</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span class="current-year"></span> Coetz.uk · <a href="../../#newsletter">Newsletter</a> · Built in Weston-super-Mare 🇬🇧</p>
+    <p>Powered by obsessive AI tool testing.</p>
+  </div>
+</footer>
+<script>document.querySelectorAll('.current-year').forEach(y=>{y.textContent=new Date().getFullYear();});</script>
+</body>
+</html>

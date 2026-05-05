@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Build an AI Second Brain in Notion (Free Plan) | Coetz.uk</title>
+<meta name="description" content="A step-by-step guide to building an AI-powered second brain in Notion — eight databases, 50 pre-loaded prompts, and a workflow that actually sticks.">
+<link rel="canonical" href="https://coetz.uk/blog/ai-notion-second-brain/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://coetz.uk/blog/ai-notion-second-brain/">
+<meta property="og:title" content="How to Build an AI Second Brain in Notion (Free Plan)">
+<meta property="og:description" content="A step-by-step guide to building an AI-powered second brain in Notion — eight databases, 50 pre-loaded prompts, workflow that sticks.">
+<meta property="og:image" content="https://coetz.uk/media/og-card.png">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Build an AI Second Brain in Notion (Free Plan)">
+<meta name="twitter:description" content="Step-by-step guide: eight databases, 50 prompts, workflow that actually sticks.">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="Notion second brain, AI second brain Notion, Notion AI setup, Notion productivity system, build second brain Notion free">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Build an AI Second Brain in Notion",
+  "description": "A step-by-step guide to building an AI-powered second brain in Notion using eight databases and a prompt library.",
+  "author": { "@type": "Person", "name": "Coetz", "url": "https://coetz.uk" },
+  "url": "https://coetz.uk/blog/ai-notion-second-brain/",
+  "inLanguage": "en-GB"
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:1em;scroll-behavior:smooth;}
+:root{--ink:#07080a;--deep:#0b0d11;--panel:#161b22;--lift:#1d232e;--rim:#262f3c;--rimhi:#30404f;--sig:#4fffb0;--volt:#d4ff00;--ice:#a0c4ff;--coral:#ff7eb3;--t1:#f4f7fb;--t2:#b8c5d0;--t3:#8796a5;--t4:#617181;}
+body{font-family:'Epilogue',sans-serif;font-size:1em;background:var(--ink);color:var(--t1);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:60px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,8,10,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--lift);}
+.nav-brand{font-family:'Anybody',sans-serif;font-size:20px;font-weight:900;font-style:italic;letter-spacing:-0.5px;text-decoration:none;color:var(--t1);}
+.nav-brand .tld{color:var(--sig);}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--t1);}
+.nav-cta{font-family:'Anybody',sans-serif;font-size:13px;font-weight:900;font-style:italic;background:var(--sig);color:var(--ink);border:none;padding:8px 18px;border-radius:6px;cursor:pointer;text-decoration:none;transition:opacity .2s;}
+.nav-cta:hover{opacity:.85;}
+@media(max-width:700px){.nav-links{display:none;}nav{padding:0 20px;}}
+.article-wrap{max-width:720px;margin:0 auto;padding:100px 24px 80px;}
+.breadcrumb{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-bottom:24px;display:flex;align-items:center;gap:8px;}
+.breadcrumb a{color:var(--t3);text-decoration:none;}
+.breadcrumb a:hover{color:var(--sig);}
+.breadcrumb-sep{color:var(--t4);}
+.article-tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:3px;display:inline-block;margin-bottom:20px;background:rgba(79,255,176,.1);color:var(--sig);}
+.article-h1{font-family:'Anybody',sans-serif;font-size:clamp(32px,6vw,56px);font-weight:900;font-style:italic;line-height:1.0;letter-spacing:-1.5px;margin-bottom:20px;}
+.article-h1 em{font-style:normal;color:var(--sig);}
+.article-meta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:40px;padding-bottom:32px;border-bottom:1px solid var(--lift);}
+.article-meta-item{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:0.5px;}
+.article-intro{font-size:17px;color:var(--t2);line-height:1.8;margin-bottom:48px;}
+.article-intro strong{color:var(--t1);}
+.article-body h2{font-family:'Anybody',sans-serif;font-size:clamp(22px,3.5vw,32px);font-weight:900;font-style:italic;letter-spacing:-0.5px;margin:52px 0 16px;}
+.article-body h2 em{font-style:normal;color:var(--sig);}
+.article-body p{font-size:15px;color:var(--t2);line-height:1.8;margin-bottom:20px;}
+.article-body p strong{color:var(--t1);}
+.article-body ul,.article-body ol{margin:0 0 20px 20px;}
+.article-body li{font-size:15px;color:var(--t2);line-height:1.75;margin-bottom:8px;}
+.article-body li strong{color:var(--t1);}
+.article-body a{color:var(--sig);text-decoration:none;}
+.article-body a:hover{text-decoration:underline;}
+.callout{background:var(--panel);border:1px solid var(--lift);border-left:3px solid var(--sig);border-radius:0 12px 12px 0;padding:20px 24px;margin:32px 0;}
+.callout-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--sig);margin-bottom:8px;}
+.callout p{font-size:14px;color:var(--t2);line-height:1.7;margin:0;}
+.callout p strong{color:var(--t1);}
+
+.db-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:28px 0;}
+@media(max-width:500px){.db-grid{grid-template-columns:1fr;}}
+.db-card{background:var(--panel);border:1px solid var(--lift);border-radius:12px;padding:20px;}
+.db-icon{font-size:28px;margin-bottom:10px;display:block;}
+.db-name{font-family:'Anybody',sans-serif;font-size:16px;font-weight:900;font-style:italic;letter-spacing:-0.2px;margin-bottom:6px;}
+.db-desc{font-size:12.5px;color:var(--t2);line-height:1.6;}
+.db-desc strong{color:var(--t1);}
+
+.step-list{display:flex;flex-direction:column;gap:0;margin:28px 0;position:relative;}
+.step-list::before{content:'';position:absolute;left:19px;top:20px;bottom:20px;width:1px;background:var(--lift);}
+.step-item{display:flex;gap:20px;align-items:flex-start;padding:20px 0;}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--panel);border:1px solid var(--sig);display:flex;align-items:center;justify-content:center;font-family:'Anybody',sans-serif;font-size:14px;font-weight:900;font-style:italic;color:var(--sig);flex-shrink:0;position:relative;z-index:1;}
+.step-body{}
+.step-title{font-family:'Anybody',sans-serif;font-size:17px;font-weight:900;font-style:italic;margin-bottom:6px;letter-spacing:-0.2px;}
+.step-text{font-size:13.5px;color:var(--t2);line-height:1.7;}
+.step-text strong{color:var(--t1);}
+
+.cta-block{background:var(--panel);border:1px solid rgba(79,255,176,.2);border-radius:16px;padding:40px;text-align:center;margin:52px 0;position:relative;overflow:hidden;}
+.cta-block::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--sig),var(--volt));}
+.cta-block-eye{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--sig);margin-bottom:12px;}
+.cta-block h3{font-family:'Anybody',sans-serif;font-size:clamp(20px,3vw,28px);font-weight:900;font-style:italic;letter-spacing:-0.5px;margin-bottom:10px;}
+.cta-block h3 em{font-style:normal;color:var(--sig);}
+.cta-block p{font-size:14px;color:var(--t2);line-height:1.7;max-width:440px;margin:0 auto 24px;}
+.btn-primary{font-family:'Anybody',sans-serif;font-size:14px;font-weight:900;font-style:italic;background:var(--sig);color:var(--ink);border:none;padding:13px 24px;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s;}
+.btn-primary:hover{opacity:.87;}
+.btn-ghost{font-family:'Anybody',sans-serif;font-size:13px;font-weight:700;font-style:italic;background:transparent;color:var(--t1);border:1px solid var(--rim);padding:12px 20px;border-radius:8px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color .2s;margin-left:10px;}
+.btn-ghost:hover{border-color:var(--rimhi);}
+.related{margin-top:72px;padding-top:40px;border-top:1px solid var(--lift);}
+.related-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--t3);margin-bottom:20px;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.related-card{background:var(--panel);border:1px solid var(--lift);border-radius:12px;padding:18px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s;}
+.related-card:hover{border-color:var(--rimhi);transform:translateY(-2px);}
+.related-card-tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);margin-bottom:8px;}
+.related-card-title{font-family:'Anybody',sans-serif;font-size:14px;font-weight:900;font-style:italic;line-height:1.2;letter-spacing:-0.2px;}
+footer{background:var(--deep);border-top:1px solid var(--lift);padding:48px 40px 36px;margin-top:80px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;margin-bottom:40px;}
+@media(max-width:700px){.footer-inner{grid-template-columns:1fr;}}
+.footer-brand .name{font-family:'Anybody',sans-serif;font-size:22px;font-weight:900;font-style:italic;letter-spacing:-0.5px;margin-bottom:10px;}
+.footer-brand .name span{color:var(--sig);}
+.footer-brand p{font-size:13px;color:var(--t2);line-height:1.65;max-width:240px;}
+.footer-col h4{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);margin-bottom:14px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-col ul a{font-size:13px;color:var(--t2);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:7px;}
+.footer-col ul a:hover{color:var(--t1);}
+.footer-col ul a::before{content:'›';color:var(--t3);font-size:13px;}
+.footer-bottom{max-width:1100px;margin:0 auto;padding-top:24px;border-top:1px solid var(--lift);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-bottom p{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t3);letter-spacing:0.5px;}
+.footer-bottom a{color:var(--sig);text-decoration:none;}
+@media(max-width:600px){.article-wrap{padding:88px 20px 60px;}footer{padding:40px 20px 28px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../../" class="nav-brand">Coetz<span class="tld">.uk</span></a>
+  <ul class="nav-links">
+    <li><a href="../../#about">About</a></li>
+    <li><a href="../">Blog</a></li>
+    <li><a href="../../#products">Products</a></li>
+    <li><a href="../../#newsletter">Newsletter</a></li>
+    <li><a href="../../links/">Links</a></li>
+  </ul>
+  <a href="../../#newsletter" class="nav-cta">Get the Free Kit →</a>
+</nav>
+
+<div class="article-wrap">
+  <div class="breadcrumb">
+    <a href="../../">Coetz.uk</a>
+    <span class="breadcrumb-sep">/</span>
+    <a href="../">The Hub</a>
+    <span class="breadcrumb-sep">/</span>
+    <span>Productivity</span>
+  </div>
+
+  <div class="article-tag">Workflow Setup</div>
+  <h1 class="article-h1">How to Build an<br><em>AI Second Brain in Notion</em></h1>
+
+  <div class="article-meta">
+    <span class="article-meta-item">8 min read</span>
+    <span class="article-meta-item">Workflow Setup</span>
+    <span class="article-meta-item">May 2025</span>
+    <span class="article-meta-item">Works on free plan</span>
+  </div>
+
+  <p class="article-intro">
+    A "second brain" is a system that stores, connects, and surfaces information so you don't have to keep it in your head. Add AI to that — a prompt library, AI-enhanced note capture, and automated workflows — and you get a workspace that <strong>actively helps you think, not just store things</strong>.
+  </p>
+
+  <div class="article-body">
+
+    <div class="callout">
+      <div class="callout-label">Free vs paid Notion</div>
+      <p>Everything in the database structure below works on the <strong>Notion free plan</strong>. Notion AI (the built-in AI assistant) requires a paid plan, but you can replicate its functionality by copying content into Claude or ChatGPT. The free plan is genuinely enough to get started.</p>
+    </div>
+
+    <h2>The Eight <em>Databases</em></h2>
+    <p>The system is built on eight interconnected databases. Each one has a purpose — nothing is redundant. They're linked through Notion's relation and rollup properties, so information flows between them without manual copying.</p>
+
+    <div class="db-grid">
+      <div class="db-card">
+        <span class="db-icon">📝</span>
+        <div class="db-name">Notes</div>
+        <div class="db-desc">Raw captures — ideas, observations, meeting notes, articles saved for later. <strong>No perfectionism here.</strong> Quantity over quality. AI helps clean and categorise later.</div>
+      </div>
+      <div class="db-card">
+        <span class="db-icon">🗂️</span>
+        <div class="db-name">Projects</div>
+        <div class="db-desc">Active work. Each project links to its related notes, tasks, and resources. Status, deadline, and linked deliverables in one view. <strong>The command centre.</strong></div>
+      </div>
+      <div class="db-card">
+        <span class="db-icon">⌬</span>
+        <div class="db-name">Prompt Library</div>
+        <div class="db-desc">The most-used AI prompts saved and categorised. Tagged by use case (email, research, writing, coding). Each has a title, the prompt body, and notes on when it works best.</div>
+      </div>
+      <div class="db-card">
+        <span class="db-icon">🔧</span>
+        <div class="db-name">Tools</div>
+        <div class="db-desc">Every AI tool I've tested — rating, cost, use cases, verdict. Linked to the notes taken while testing them. <strong>Never forget what you've already evaluated.</strong></div>
+      </div>
+      <div class="db-card">
+        <span class="db-icon">👥</span>
+        <div class="db-name">People & Contacts</div>
+        <div class="db-desc">Not a CRM — a context database. Key things to remember about collaborators, clients, and contacts. Meeting notes linked here automatically via the Notes database.</div>
+      </div>
+      <div class="db-card">
+        <span class="db-icon">✅</span>
+        <div class="db-name">Tasks</div>
+        <div class="db-desc">Action items linked to the projects that contain them. Due dates, priorities, and a "Today" filtered view. <strong>Separate from Projects</strong> — tasks are granular, projects are strategic.</div>
+      </div>
+      <div class="db-card">
+        <span class="db-icon">📚</span>
+        <div class="db-name">Resources</div>
+        <div class="db-desc">Books, articles, videos, and podcasts worth revisiting. Tag by topic. AI-generated summaries saved alongside each resource so you can retrieve insights without re-reading everything.</div>
+      </div>
+      <div class="db-card">
+        <span class="db-icon">🔄</span>
+        <div class="db-name">Weekly Review</div>
+        <div class="db-desc">A database of weekly review entries — wins, blockers, focus for next week. <strong>Reviewable over time.</strong> Pair with an AI prompt to generate the entry from your weekly activity.</div>
+      </div>
+    </div>
+
+    <h2>How to <em>Build It</em></h2>
+    <p>Follow these steps in order. Don't try to build everything at once — a system you actually use is better than a perfect system you never open.</p>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Create the Notes database first</div>
+          <div class="step-text">In a new Notion page, create a full-page database called "Notes." Add these properties: Name (title), Status (select: Inbox / Processing / Reference / Archive), Tags (multi-select), Date (created time), Source (text), and AI Summary (text). This is where everything enters the system. <strong>Start capturing immediately, even before the rest is built.</strong></div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Add the Projects database</div>
+          <div class="step-text">Create a Projects database. Add: Status (select: Active / On hold / Complete), Due date, Priority, and a Relation property that links to Notes. Now every note can be linked to the project it belongs to. Add a filtered view called "Active" showing only in-progress projects — this becomes your daily dashboard.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Build the Prompt Library</div>
+          <div class="step-text">Create a database called "Prompt Library." Properties: Name, Category (select: Writing, Research, Email, Code, Strategy, Other), Model (works best with which AI), Prompt Body (text), and Notes (text for caveats). <strong>Populate it with the 50 prompts from the free kit</strong> as your starting set, then add your own as you discover what works.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Create the Tasks database and link to Projects</div>
+          <div class="step-text">Tasks database with: Name, Done (checkbox), Due date, Priority, and a Relation to Projects. Add a "Today" filtered view (Due = today, Done = unchecked). This single view replaces a to-do app for most people. When you open Notion each morning, this is what you look at first.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Set up the Weekly Review database</div>
+          <div class="step-text">Create a Weekly Review database with: Week ending date, Wins (text), Blockers (text), Carry-overs (relation to Tasks), Focus next week (text). Then create a prompt in your Prompt Library: <em>"Based on the following week's notes and completed tasks, draft a concise weekly review covering: three wins, two blockers, and three priorities for next week. Keep it under 200 words."</em> Paste your weekly output into Claude to generate the review draft.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <div class="step-title">Build a Home dashboard page</div>
+          <div class="step-text">Create a page called "Home" (set it as your Notion start page). Use linked database views to show: Today's Tasks, Active Projects, Recently added Notes (Inbox filter), and a link to the Prompt Library. <strong>This becomes your daily entry point.</strong> Everything visible in one place, no clicking around to find what you need.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">7</div>
+        <div class="step-body">
+          <div class="step-title">Add AI to your capture workflow</div>
+          <div class="step-text">The most powerful habit: when you add a note to the Inbox, paste it into Claude with this prompt: <em>"Summarise this note in two sentences. Suggest 2–3 tags from these categories: [your tag list]. Identify any action items."</em> Paste Claude's response back into the AI Summary field. You now have searchable, structured notes instead of a pile of raw text. Takes 60 seconds per note.</div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">8</div>
+        <div class="step-body">
+          <div class="step-title">Skip the Tools and Resources databases for now</div>
+          <div class="step-text">Build these once the core six databases are working and you're using the system daily. Adding too much structure too early is how second brain systems get abandoned. <strong>The minimum viable system is Notes + Projects + Tasks + Weekly Review.</strong> The rest is optional enhancement.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">The one habit that makes it stick</div>
+      <p>Spend 10 minutes every morning opening the Home dashboard. Check Today's Tasks, glance at Active Projects, process anything in the Notes Inbox. <strong>If you skip the daily habit, the system dies.</strong> The tech is secondary to the routine.</p>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-block-eye">Done for you</div>
+      <h3>Skip the setup.<br><em>Get the pre-built template.</em></h3>
+      <p>The AI Second Brain Notion Template has all eight databases pre-built, 50 prompts pre-loaded, and a setup video walkthrough. Duplicate once, use forever. Works on Notion's free plan.</p>
+      <a href="../../#products" class="btn-primary">Get the template — £19 →</a>
+      <a href="../../#newsletter" class="btn-ghost">50 free prompts first</a>
+    </div>
+
+    <div class="related">
+      <div class="related-label">Read next</div>
+      <div class="related-grid">
+        <a href="../rcf-prompt-framework/" class="related-card">
+          <div class="related-card-tag">Prompts</div>
+          <div class="related-card-title">The R-C-F Prompt Framework</div>
+        </a>
+        <a href="../founders-ai-stack/" class="related-card">
+          <div class="related-card-tag">Stacks</div>
+          <div class="related-card-title">The Founder's AI Stack</div>
+        </a>
+        <a href="../ai-tools-reclaim-5-hours/" class="related-card">
+          <div class="related-card-tag">Productivity</div>
+          <div class="related-card-title">3 AI Tools to Reclaim 5 Hours</div>
+        </a>
+        <a href="../ai-productivity-uk/" class="related-card">
+          <div class="related-card-tag">UK Guide</div>
+          <div class="related-card-title">AI Productivity for UK Professionals</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="name">Coetz<span>.uk</span></div>
+      <p>AI tools tested so you don't have to. Daily prompts, stacks and workflow hacks from @coetz.ai.</p>
+    </div>
+    <div class="footer-col">
+      <h4>The Hub</h4>
+      <ul>
+        <li><a href="../">All Guides</a></li>
+        <li><a href="../rcf-prompt-framework/">R-C-F Framework</a></li>
+        <li><a href="../founders-ai-stack/">Founder's AI Stack</a></li>
+        <li><a href="../ai-tools-reclaim-5-hours/">5 Hours Back With AI</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find me</h4>
+      <ul>
+        <li><a href="https://instagram.com/coetz.ai">Instagram @coetz.ai</a></li>
+        <li><a href="../../#products">Products</a></li>
+        <li><a href="../../links/">All Links</a></li>
+        <li><a href="mailto:ben@coetz.uk">ben@coetz.uk</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© <span class="current-year"></span> Coetz.uk · <a href="../../#newsletter">Newsletter</a> · Built in Weston-super-Mare 🇬🇧</p>
+    <p>Powered by obsessive AI tool testing.</p>
+  </div>
+</footer>
+<script>document.querySelectorAll('.current-year').forEach(y=>{y.textContent=new Date().getFullYear();});</script>
+</body>
+</html>
